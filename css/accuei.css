@@ -1,0 +1,68 @@
+body{
+    height: 100%;
+}
+html {
+   margin: 0;
+   padding: 0;
+   border: 20px;
+   margin-left: 20px;
+   margin-right: 20px;
+   font-style: normal;
+   font-family: sans-serif;
+   text-align: justify;
+}
+header{
+    width: 100%;
+     display: block;
+     border-bottom: 5px solid red;
+     
+}
+.logo-gbaf{
+    
+    width: 100px;
+    height: 100px;
+    margin-top: 20px;
+    margin-right: auto;
+ 
+ }
+ .info-utilisateur{
+     
+    width: 100px;
+    height: 100px;
+    float:right;
+    margin-left: auto;
+    text-align: center;
+
+ }
+ #presentation{
+    text-align: justify;
+    margin-bottom: 50px;
+    padding-bottom: 10px;
+    border-bottom: 5px solid red;
+ }
+ .ilustration{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+ }
+#text-acteur{
+    border: 2px solid red ;
+    padding: 10px 10px 10px 10px;
+
+}
+#acteur1,#acteur2,#acteur3,#acteur4{
+    border: 2px solid red ;
+    margin: 10px 10px 10px 10px;
+    
+    padding: 10px 10px 10px 10px;
+
+}
+/* redimensioner les images */
+.logo-acteur{
+    width: 350px;
+    height: 350px;
+
+}
+
+
