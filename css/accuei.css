@@ -16,26 +16,38 @@ html {
 }
 header{
     width: 100%;
-     display: block;
      border-bottom: 5px solid red;
+     background-color: yellow;
+     display: inline-block;
+     
      
 }
-.logo-gbaf{
+.logo{
+    margin-left: 10em;
+    display: inline-block;
+    margin-right: 10cm;
+    vertical-align: top;
     
+}
+
+.logo-gbaf{
+    background-color: teal;
     width: 100px;
     height: 100px;
-    margin-top: 20px;
-    margin-right: auto;
+    
+    
  
  }
  .info-utilisateur{
-     
+     background-color: tomato;
     width: 100px;
     height: 100px;
-    float:right;
-    margin-left: auto;
-    text-align: center;
-
+    display: inline-block; 
+    vertical-align: top;
+  margin-left: 1000px;
+   
+    
+   
  }
  #presentation{
     text-align: justify;
