@@ -43,5 +43,6 @@ input{
 /* essayer de modifier le footer */
 footer{
     background-color: red;
-    position: absolute;
-   bottom: 0;
+    bottom: 0;
+    text-align: center;
+}

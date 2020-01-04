@@ -7,25 +7,10 @@ catch(Exception $e)
 {
     die('erreur:'.$e->getMessage());
 }
- if ( isset ($_POST['teste']))
-{
-    if(!empty($_POST['nom']) AND !empty($_POST['prenom']) AND !empty($_POST['speudo']) AND !empty($_POST['mdp']) AND !empty($_POST['question']) AND !empty($_POST['secret']))
-    {
-        $nom = htmlspecialchars($_POST['nom']);
-        $prenom = htmlspecialchars($_POST['prenom']);
-        $speudo = htmlspecialchars($_POST['speudo']);
-        $mdp = sha1($_POST['mdp']);
-        $question= htmlspecialchars($_POST['question']);
-        $secret = sha1($_POST['secret']);
-    }
 
-    
-
-}
-
-    $insertacteur = $bdd->prepare('INSERT INTO acteur_utilisateur(nom, prenom, nom_utilisateur, mot_de_pass, question, reponse) VALUES (?, ?, ?, ?, ?, ?)');
-    $insertacteur->execute(array($nom, $prenom, $speudo, $mdp, $question, $secret));
-
+        $insertActeur = $bdd->prepare('INSERT INTO acteur_utilisateur(nom, prenom, nom_utilisateur, mot_de_pass, question, reponse) VALUES (?, ?, ?, ?, ?, ?)');
+        $insertActeur->execute(array($nom, $prenom, $speudo, $mdp, $question, $secret));
+        header('Location: connexion.html');
 
 
 
@@ -43,7 +28,7 @@ catch(Exception $e)
 </head>
 <body>
     <header class="logo">
-        <img class="logo-gbaf" src="css/GBAF.png" alt="logo">
+        <img class="logo-gbaf" src="css/img/GBAF.png" alt="logo">
     </header>
 
     <section class="titre-connexion">

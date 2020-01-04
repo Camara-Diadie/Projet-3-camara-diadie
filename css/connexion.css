@@ -45,9 +45,9 @@
  }
  /* essayer de modifier le footer */
  footer{
-     background-color: red;
-     position: absolute;
+    background-color: red;
     bottom: 0;
+    text-align: center;
 
 
  }
