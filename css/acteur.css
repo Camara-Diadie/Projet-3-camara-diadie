@@ -1,0 +1,55 @@
+body{
+    height: 100%;
+}
+html {
+   margin: 0;
+   padding: 0;
+   margin-left: 20px;
+   margin-right: 20px;
+   font-style: normal;
+   font-family: sans-serif;
+}
+header{
+    width: 100%;
+    border-bottom: 5px solid red;
+    background-color: yellow;
+    
+     
+     
+}
+.logo-gbaf{
+    background-color: teal;
+    width: 100px;
+    height: 100px;
+    float: lef;
+    
+ 
+ }
+ .info-utilisateur{
+    background-color: tomato;
+    width: 100px;
+    height: 100px;
+    float: right;
+   
+    
+   
+ }
+ footer{
+    margin-top: 20px;
+    bottom: 0px;
+    left: 65px;
+    position: absolute;
+}
+.logo-acteur{
+    width: 550px;
+    height: 150px;
+    margin: 0 auto;
+    text-align: center;
+}
+.commentaires{
+    border:2px solid red;
+    padding: 5px;
+}
+.commentaires h3{
+    text-align: center;
+}
