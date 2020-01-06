@@ -5,7 +5,7 @@ try
 }
 catch(Execption $e)
 {
-    die('erreur:'.$e->getMessage());
+    die('erreur:'.$e->postMessage());
 }
 
 
@@ -24,17 +24,6 @@ if(isset($_POST['formulaire']))
     {
     
         
-        if(isset($_POST['submit']))
-        {
-            echo "enregistre".$_POST['submit']; 
-        }
-        else
-        {
-            $ins = $bdd->prepare ("INSERT INTO acteur_utilisateur (nom,prenom,nom_utilisateur,mot_de_pass,question,reponse) VALUES (?, ?, ?, ?, ?, ?)");
-            $ins->execute (array($_POST['nom'], $_POST['prenom'], $_POST['speudo'], $_POST['mdp'], $_POST['question'], $_POST['reponse']));
-
-        }
-
     }
     else
     {
@@ -42,6 +31,9 @@ if(isset($_POST['formulaire']))
     }
 
 }
+$ins = $bdd->prepare ("INSERT INTO acteur_utilisateur (nom,prenom,nom_utilisateur,mot_de_pass,question,reponse) VALUES (?, ?, ?, ?, ?, ?)");
+$ins->execute (array($_POST['nom'], $_POST['prenom'], $_POST['speudo'], $_POST['mdp'], $_POST['question'], $_POST['reponse']));
+header('Location: connexion.php');
 
 ?>
 
