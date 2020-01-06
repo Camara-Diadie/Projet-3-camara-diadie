@@ -1,16 +1,56 @@
 <?php
 try
 {
-    $bdd = new PDO('mysql:host=localhost;dbname=gbaf', 'root','');
+    $bdd = new PDO('mysql:host=localhost;dbname=gbaf', 'root','' );// variable bdd , connection a la base de donner 
 }
-catch(Exception $e)
+catch(Execption $e)
 {
     die('erreur:'.$e->getMessage());
 }
 
-        $insertActeur = $bdd->prepare('INSERT INTO acteur_utilisateur(nom, prenom, nom_utilisateur, mot_de_pass, question, reponse) VALUES (?, ?, ?, ?, ?, ?)');
-        $insertActeur->execute(array($nom, $prenom, $speudo, $mdp, $question, $secret));
-        header('Location: connexion.html');
+
+// teste 
+if(isset($_POST['formulaire']))
+{
+    $nom = htmlspecialchars($_POST['nom']);
+    $prenom = htmlspecialchars($_POST['prenom']);
+    $speudo = htmlspecialchars($_POST['pseudo']);
+    $mdp = sha1($_POST['mdp']);
+    $question = htmlspecialchars($_POST['question']);
+    $secret = sha1($_POST['secret']);
+
+    if(!empty($_POST['nom']) AND !empty($_POST['prenom']) AND !empty($_POST['speudo']) AND !empty($_POST['mdp']) AND !empty($_POST['question']) AND !empty($_POST['secret']))
+    {
+        $speudolength = strlen($speudo);
+        if($speudolength <= 255)
+        {
+
+        }
+        else
+        {
+            $insertacteur = $bdd->prepare ("INSERT INTO acteur_utilisateur(nom, prenom, nom_utilisateur, mot_de_pass, question, reponse) VALUES (?, ?, ?, ?, ?, ?)");
+            $insertacteur->execute (array($nom, $prenom, $speudo, $mdp, $question, $secret));
+            $erreur = "votre compte a deja etait crée";
+            header('Location:connexion.php');
+        }
+
+    }
+    else
+    {
+      $erreur ="Tout les champs doivent être completer";
+    }
+    
+    $insertacteur = $bdd->prepare ("INSERT INTO acteur_utilisateur(nom, prenom, nom_utilisateur, mot_de_pass, question, reponse) VALUES (?, ?, ?, ?, ?, ?)");
+    $insertacteur->execute (array($nom, $prenom, $speudo, $mdp, $question, $secret));
+    $erreur = "votre compte a deja etait crée";
+    header('Location:connexion.php');
+    
+    
+
+}
+
+
+
 
 
 
@@ -44,13 +84,20 @@ catch(Exception $e)
                 <label for="prenom">Prénom : </label>
                 <input type="text" placeholder="Entrer votre Prénom" name="prenom" id="prenom" required><br>
                 <label for="utilisateur">Nom d'utilisateur : </label>
-                <input type="text" placeholder="Nom d'utilisateur" name="speudo" id="utilisateur" required></br>
+                <input type="text" placeholder="Nom d'utilisateur" name="speudo" id="speudo" required></br>
                 <label for="mot-de-passe"> Mot de passe :</label>
-                <input type="password" placeholder="votre Mdp" name="mdp" id="mot-de-passe" required><br>
+                <input type="password" placeholder="votre Mdp" name="mdp" id="mdp" required><br>
                 <label for="question">Qestion secret <SELECT name="question" size="0"><OPTION>le nom de votre animal<OPTION>le nom de votre meilleur ami(e)</SELECT></label>
                 <input type="text" placeholder="Réponse" name="secret" id="secret" required><br>
                 <input type="submit"  id="submit" name="teste" value="Enregistré">
             </form>
+            <?php
+            if(isset($erreur))
+            {
+                echo $erreur;
+            }
+            
+            ?>
         </div>
     </section>
     <footer>
