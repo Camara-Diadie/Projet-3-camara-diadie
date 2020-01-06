@@ -2,6 +2,7 @@
 try
 {
     $bdd = new PDO('mysql:host=localhost;dbname=gbaf', 'root','' );// variable bdd , connection a la base de donner 
+    $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
 }
 catch(Execption $e)
 {
@@ -13,27 +14,24 @@ catch(Execption $e)
 // teste 
 if(isset($_POST['formulaire']))
 {
-    $nom = htmlspecialchars($_POST['nom']);
-    $prenom = htmlspecialchars($_POST['prenom']);
-    $speudo = htmlspecialchars($_POST['pseudo']);
-    $mdp = sha1($_POST['mdp']);
-    $question = htmlspecialchars($_POST['question']);
-    $reponse = sha1($_POST['reponse']);
-
     if(!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['speudo']) && !empty($_POST['mdp']) && !empty($_POST['question']) && !empty($_POST['reponse']))
     {
-    
-        
+        $nom = htmlspecialchars($_POST['nom']);
+        $prenom = htmlspecialchars($_POST['prenom']);
+        $speudo = htmlspecialchars($_POST['pseudo']);
+        $mdp = sha1($_POST['mdp']);
+        $question = htmlspecialchars($_POST['question']);
+        $reponse = sha1($_POST['reponse']);
+        $ins = $bdd->prepare ('INSERT INTO acteur_utilisateur (nom,prenom,nom_utilisateur,mot_de_pass,question,reponse) VALUES (?, ?, ?, ?, ?, ?)');
+        $ins->execute (array($_POST['nom'], $_POST['prenom'],$_POST['speudo'],$_POST['mdp'],$_POST['question'],$_POST['reponse']));
     }
-    else
-    {
-      echo"Tout les champs doivent être completer";
+    if($ins ->rowCount()==1){
+        echo "";
     }
-
+    $ins = $bdd->prepare ('INSERT INTO acteur_utilisateur (nom,prenom,nom_utilisateur,mot_de_pass,question,reponse) VALUES (?, ?, ?, ?, ?, ?)');
+    $ins->execute (array($_POST['nom'], $_POST['prenom'],$_POST['speudo'],$_POST['mdp'],$_POST['question'],$_POST['reponse']));
 }
-$ins = $bdd->prepare ("INSERT INTO acteur_utilisateur (nom,prenom,nom_utilisateur,mot_de_pass,question,reponse) VALUES (?, ?, ?, ?, ?, ?)");
-$ins->execute (array($_POST['nom'], $_POST['prenom'], $_POST['speudo'], $_POST['mdp'], $_POST['question'], $_POST['reponse']));
-header('Location: connexion.php');
+//header('Location: connexion.php');
 
 ?>
 
@@ -71,13 +69,7 @@ header('Location: connexion.php');
                 <input type="text" placeholder="Réponse" name="reponse" id="reponse" required><br>
                 <input type="submit"  id="submit" name="teste" value="Enregistré">
             </form>
-            <?php
-            if(isset($erreur))
-            {
-                echo $erreur;
-            }
-            
-            ?>
+           
         </div>
     </section>
     <footer>

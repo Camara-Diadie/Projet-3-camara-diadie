@@ -24,14 +24,14 @@ html {
  }
  .formulaire-enregistrement{
     background-color: yellow;
-   text-align: center;
-   padding: 15px 15px 15px 15px;
-   border: 3px solid red ;
-   width: 200px;
-   height: auto;
-   margin-left: auto;
-   margin-right: auto;
-   margin-bottom: 100px;
+    text-align: center;
+    padding: 15px 15px 15px 15px;
+    border: 3px solid red ;
+    width: 200px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 100px;
 }
 label{
     font-size: 15px;
@@ -40,7 +40,7 @@ label{
 input{
     border-radius: 3px;
 }
-/* essayer de modifier le footer */
+
 footer{
     background-color: red;
     bottom: 0;
