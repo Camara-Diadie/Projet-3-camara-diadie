@@ -9,6 +9,7 @@ catch(Execption $e)
 }
 
 
+
 // teste 
 if(isset($_POST['formulaire']))
 {
@@ -17,46 +18,33 @@ if(isset($_POST['formulaire']))
     $speudo = htmlspecialchars($_POST['pseudo']);
     $mdp = sha1($_POST['mdp']);
     $question = htmlspecialchars($_POST['question']);
-    $secret = sha1($_POST['secret']);
+    $reponse = sha1($_POST['reponse']);
 
-    if(!empty($_POST['nom']) AND !empty($_POST['prenom']) AND !empty($_POST['speudo']) AND !empty($_POST['mdp']) AND !empty($_POST['question']) AND !empty($_POST['secret']))
+    if(!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['speudo']) && !empty($_POST['mdp']) && !empty($_POST['question']) && !empty($_POST['reponse']))
     {
-        $speudolength = strlen($speudo);
-        if($speudolength <= 255)
+    
+        
+        if(isset($_POST['submit']))
         {
-
+            echo "enregistre".$_POST['submit']; 
         }
         else
         {
-            $insertacteur = $bdd->prepare ("INSERT INTO acteur_utilisateur(nom, prenom, nom_utilisateur, mot_de_pass, question, reponse) VALUES (?, ?, ?, ?, ?, ?)");
-            $insertacteur->execute (array($nom, $prenom, $speudo, $mdp, $question, $secret));
-            $erreur = "votre compte a deja etait crée";
-            header('Location:connexion.php');
+            $ins = $bdd->prepare ("INSERT INTO acteur_utilisateur (nom,prenom,nom_utilisateur,mot_de_pass,question,reponse) VALUES (?, ?, ?, ?, ?, ?)");
+            $ins->execute (array($_POST['nom'], $_POST['prenom'], $_POST['speudo'], $_POST['mdp'], $_POST['question'], $_POST['reponse']));
+
         }
 
     }
     else
     {
-      $erreur ="Tout les champs doivent être completer";
+      echo"Tout les champs doivent être completer";
     }
-    
-    $insertacteur = $bdd->prepare ("INSERT INTO acteur_utilisateur(nom, prenom, nom_utilisateur, mot_de_pass, question, reponse) VALUES (?, ?, ?, ?, ?, ?)");
-    $insertacteur->execute (array($nom, $prenom, $speudo, $mdp, $question, $secret));
-    $erreur = "votre compte a deja etait crée";
-    header('Location:connexion.php');
-    
-    
 
 }
 
-
-
-
-
-
-
-
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -88,7 +76,7 @@ if(isset($_POST['formulaire']))
                 <label for="mot-de-passe"> Mot de passe :</label>
                 <input type="password" placeholder="votre Mdp" name="mdp" id="mdp" required><br>
                 <label for="question">Qestion secret <SELECT name="question" size="0"><OPTION>le nom de votre animal<OPTION>le nom de votre meilleur ami(e)</SELECT></label>
-                <input type="text" placeholder="Réponse" name="secret" id="secret" required><br>
+                <input type="text" placeholder="Réponse" name="reponse" id="reponse" required><br>
                 <input type="submit"  id="submit" name="teste" value="Enregistré">
             </form>
             <?php
