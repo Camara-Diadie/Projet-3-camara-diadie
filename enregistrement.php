@@ -12,24 +12,33 @@ catch(Execption $e)
 
 
 // teste 
-if(isset($_POST['formulaire']))
+if(isset($_POST['teste']))
 {
-    if(!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['speudo']) && !empty($_POST['mdp']) && !empty($_POST['question']) && !empty($_POST['reponse']))
+    if(!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['pseudo']) && !empty($_POST['mdp']) && !empty($_POST['question']) && !empty($_POST['reponse']))
     {
         $nom = htmlspecialchars($_POST['nom']);
         $prenom = htmlspecialchars($_POST['prenom']);
-        $speudo = htmlspecialchars($_POST['pseudo']);
+        $pseudo = htmlspecialchars($_POST['pseudo']);
         $mdp = sha1($_POST['mdp']);
         $question = htmlspecialchars($_POST['question']);
         $reponse = sha1($_POST['reponse']);
-        $ins = $bdd->prepare ('INSERT INTO acteur_utilisateur (nom,prenom,nom_utilisateur,mot_de_pass,question,reponse) VALUES (?, ?, ?, ?, ?, ?)');
-        $ins->execute (array($_POST['nom'], $_POST['prenom'],$_POST['speudo'],$_POST['mdp'],$_POST['question'],$_POST['reponse']));
+        $ins = $bdd->prepare ('INSERT INTO acteur_utilisateur (nom,prenom,nom_utilisateur,mot_de_pass,question,reponse) VALUES (:nom, :prenom, :pseudo, :mdp, :question, :reponse)');
+        $estExecuter=$ins->execute([
+            ':nom'=>$nom,
+            ':prenom'=>$prenom,
+            ':pseudo'=>$pseudo,
+            ':mdp'=>$mdp,
+            ':question'=>$question,
+            ':reponse'=>$reponse]);
+        var_dump($estExecuter);
+
     }
-    if($ins ->rowCount()==1){
-        echo "";
+    else{
+        echo 'tout les champs ne sont pas renseigner!!!';
     }
-    $ins = $bdd->prepare ('INSERT INTO acteur_utilisateur (nom,prenom,nom_utilisateur,mot_de_pass,question,reponse) VALUES (?, ?, ?, ?, ?, ?)');
-    $ins->execute (array($_POST['nom'], $_POST['prenom'],$_POST['speudo'],$_POST['mdp'],$_POST['question'],$_POST['reponse']));
+    
+
+
 }
 //header('Location: connexion.php');
 
@@ -62,7 +71,7 @@ if(isset($_POST['formulaire']))
                 <label for="prenom">Prénom : </label>
                 <input type="text" placeholder="Entrer votre Prénom" name="prenom" id="prenom" required><br>
                 <label for="utilisateur">Nom d'utilisateur : </label>
-                <input type="text" placeholder="Nom d'utilisateur" name="speudo" id="speudo" required></br>
+                <input type="text" placeholder="Nom d'utilisateur" name="pseudo" id="pseudo" required></br>
                 <label for="mot-de-passe"> Mot de passe :</label>
                 <input type="password" placeholder="votre Mdp" name="mdp" id="mdp" required><br>
                 <label for="question">Qestion secret <SELECT name="question" size="0"><OPTION>le nom de votre animal<OPTION>le nom de votre meilleur ami(e)</SELECT></label>
