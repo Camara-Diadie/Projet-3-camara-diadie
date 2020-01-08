@@ -2,20 +2,20 @@
      height: 100%;
  }
  html {
-    margin: 0;
-    padding: 0;
-    margin-left: 20px;
-    margin-right: 20px;
-    font-style: normal;
-    font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-style: normal;
+  font-family: sans-serif;
  }
  .logo-gbaf{
-    width: 100px;
-    height: 100px;
-    display: block;
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
+  width: 100px;
+  height: 100px;
+  display: block;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
  }
  .titre-connexion h1    {
     text-align: center;
@@ -23,29 +23,28 @@
  }
  .formulaire{
    text-align: center;
-   background-color: green;
+   
  }
  .formulaire-connexion{
-   background-color: yellow;
-   text-align: center;
-   padding: 15px 15px 15px 15px;
-   border: 3px solid red ;
-   width: 200px;
-   height: auto;
-   margin-left: auto;
-   margin-right: auto;
-   margin-bottom: 100px;
+   
+  text-align: center;
+  padding: 15px 15px 15px 15px;
+  border: 3px solid red ;
+  width: 200px;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 100px;
  }
  label{
-   font-size: 15px;
+  font-size: 15px;
  }
 
  input{
-   border-radius: 3px;
+  border-radius: 3px;
  }
  /* essayer de modifier le footer */
  footer{
-   background-color: red;
    bottom: 0;
    text-align: center;
  }

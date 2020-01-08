@@ -1,21 +1,18 @@
 <?php
-try
-{
-    $bdd = new PDO('mysql:host=localhost;dbname=gbaf', 'root','' );// variable bdd , connection a la base de donner 
+
+try{
+    $bdd = new PDO('mysql:host=localhost;dbname=gbaf;charset=utf8', 'root','' );// variable bdd , connection a la base de donner 
     $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
 }
-catch(Execption $e)
-{
+catch(Execption $e){
     die('erreur:'.$e->postMessage());
 }
 
 
 
 // teste 
-if(isset($_POST['teste']))
-{
-    if(!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['pseudo']) && !empty($_POST['mdp']) && !empty($_POST['question']) && !empty($_POST['reponse']))
-    {
+if(isset($_POST['enregistrement'])){
+    if(!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['pseudo']) && !empty($_POST['mdp']) && !empty($_POST['question']) && !empty($_POST['reponse'])){
         $nom = htmlspecialchars($_POST['nom']);
         $prenom = htmlspecialchars($_POST['prenom']);
         $pseudo = htmlspecialchars($_POST['pseudo']);
@@ -31,16 +28,17 @@ if(isset($_POST['teste']))
             ':question'=>$question,
             ':reponse'=>$reponse]);
         var_dump($estExecuter);
-
+        header('Location: connexion.php');
+    
     }
     else{
         echo 'tout les champs ne sont pas renseigner!!!';
     }
     
-
+    
 
 }
-//header('Location: connexion.php');
+
 
 ?>
 
@@ -67,18 +65,17 @@ if(isset($_POST['teste']))
             <form method="POST" action="">
                 <h1>Création de compte GBAF</h1>
                 <label for="nom">Nom : </label>
-                <input type="text" placeholder="Entrer votre Nom" name="nom" id="nom" required><br>
+                <input type="text" placeholder="Entrer votre Nom" name="nom" id="nom" ><br>
                 <label for="prenom">Prénom : </label>
-                <input type="text" placeholder="Entrer votre Prénom" name="prenom" id="prenom" required><br>
+                <input type="text" placeholder="Entrer votre Prénom" name="prenom" id="prenom" ><br>
                 <label for="utilisateur">Nom d'utilisateur : </label>
-                <input type="text" placeholder="Nom d'utilisateur" name="pseudo" id="pseudo" required></br>
+                <input type="text" placeholder="Nom d'utilisateur" name="pseudo" id="pseudo" ></br>
                 <label for="mot-de-passe"> Mot de passe :</label>
-                <input type="password" placeholder="votre Mdp" name="mdp" id="mdp" required><br>
+                <input type="password" placeholder="votre Mdp" name="mdp" id="mdp" ><br>
                 <label for="question">Qestion secret <SELECT name="question" size="0"><OPTION>le nom de votre animal<OPTION>le nom de votre meilleur ami(e)</SELECT></label>
-                <input type="text" placeholder="Réponse" name="reponse" id="reponse" required><br>
-                <input type="submit"  id="submit" name="teste" value="Enregistré">
+                <input type="text" placeholder="Réponse" name="reponse" id="reponse" ><br>
+                <input type="submit"  id="submit" name="enregistrement" value="Enregistré">
             </form>
-           
         </div>
     </section>
     <footer>
