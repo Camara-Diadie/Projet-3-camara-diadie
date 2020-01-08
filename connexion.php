@@ -1,4 +1,5 @@
 <?php
+session_start();
 try
 {
     $bdd = new PDO('mysql:host=localhost;dbname=gbaf;charset=utf8', 'root','');
@@ -16,8 +17,13 @@ if(isset($_POST['connexion'])){
         $userExist = $requet->rowCount();
 
         if($userExist ==1){
+            $userinfo= $requet->fetch();
+            $_SESSION['id'] =$userinfo['id'];
+            $_SESSION['pseudo'] =$userinfo['pseudo'];
+            $_SESSION['mdp'] =$userinfo['mdp'];
 
-            header('Location: index.html');
+
+            header('Location: index.php?id='.$_SESSION['id']);
 
         }
         else{

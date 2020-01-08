@@ -16,13 +16,12 @@ html {
 header{
     width: 100%;
     border-bottom: 5px solid red;
-    background-color: yellow;
+
     
      
      
 }
 .logo-gbaf{
-    background-color: teal;
     width: 100px;
     height: 100px;
     float: lef;
@@ -30,7 +29,6 @@ header{
  
  }
  .info-utilisateur{
-     background-color: tomato;
     width: 100px;
     height: 100px;
     float: right;
@@ -75,7 +73,7 @@ header{
 
 }
 .presentation-entreprise{
- display: inline-block;
+    display: inline-block;
 
  }
 
