@@ -59,7 +59,7 @@ if(isset($_POST['connexion'])){
     <title>Page Connexion GBAF</title>
 </head>
 <body>
-    <header class="logo">
+    <header>
             <img class="logo-gbaf"src="css/img/GBAF.png" alt="logo">
     </header>
     <section class="titre-connexion">
