@@ -52,7 +52,7 @@ header{
      margin-top: 20px;
  }
 #text-acteur{
-    border: 5px solid red ;
+    border:5px solid red ;
     padding: 10px 10px 10px 10px;
     margin-top: 20px;
 
@@ -61,13 +61,13 @@ header{
     border: 2px solid red ;
     margin: 10px 10px 10px 10px;
     padding: 10px 10px 10px 10px;
-    width: 100%;
+    
 
 }
 /* redimensioner les images */
 .logo-acteur{
-    width: 200px;
-    height: 150px;
+    width: 150px;
+    height: 100px;
   
     
 

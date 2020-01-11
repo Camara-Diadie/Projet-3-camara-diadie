@@ -4,7 +4,7 @@ $bdd = new PDO('mysql:host=localhost;dbname=gbaf;charset=utf8', 'root','' );// v
 
 if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
 {
-    
+  
 }
 var_dump('bonjour');
 
@@ -30,11 +30,11 @@ var_dump('bonjour');
 <body>
     <header>
         <img class="logo-gbaf" src="./css/img/GBAF.png" alt="logo">
-        <div class="info-utilisateur">
-            <p>profile de = <?php $_SESSION['id'];?></p>
+        <div class="info-utilisateur"><p><?php echo $_GET['info'];?></p>
 
         </div>
     </header>
+    <a href="<?php echo $_SERVER["HTTP_REFERER"]; ?>">Retour à la page précédente</a>
     <section id="presentation">
         <h1> Le GBAF est le représentant de la profession bancaire et des assureurs sur tous les axes de la reglementation financière française.<br> Sa mission est de promouvoir l'activité bancaire à l'échelle nationale. <br> C'est aussi un interlocuteur privilégié des pouvoirs publics.
         </h1>
@@ -48,7 +48,7 @@ var_dump('bonjour');
                 <img class="logo-acteur" src="./css/img/CDE.png" alt="logo">
                 <div class="presentation-entreprise">
                     <h3 class="info">La CDE (Chambre Des Entrepreneurs) accompagne les entreprises dans leurs démarches de formation...</h3>
-                    <a class="lien" href="CDE.html" class="lien">lire la suite</a> 
+                    <a class="lien" href="acteur-cde.php" class="lien">lire la suite</a> 
                 </div>
             </div>
 
@@ -56,7 +56,7 @@ var_dump('bonjour');
                 <img class="logo-acteur"src="./css/img/Dsa_france.png" alt="logo">
                 <div class="presentation-entreprise">
                     <h3 class="info">Dsa France accélère la croissance du territoire et s’engage avec les collectivités territoriales...</h3>
-                    <a class="lien" href="Dsa-france.html" class="lien">lire la suite</a>
+                    <a class="lien" href="acteur-dsa-france.php" class="lien">lire la suite</a>
                         
                 </div>
             </div>
@@ -65,7 +65,7 @@ var_dump('bonjour');
                 <img class="logo-acteur" src="./css/img/formation_co.png" alt="logo">
                 <div class="presentation-entreprise">
                     <h3 class="info">Formation&co est une association française présente sur tout le territoire. Nous proposons  ...</h3>
-                    <a class="lien" href="Dsa-france.html" class="lien">lire la suite</a>
+                    <a class="lien" href="acteur-formation-co.php?info" class="lien">lire la suite</a>
                                         
                 </div>
             </div>
@@ -74,7 +74,7 @@ var_dump('bonjour');
                 <img class="logo-acteur" src="./css/img/protectpeople.png" alt="logo">
                 <div class="presentation-entreprise">
                     <h3 class="info" >Protectpeople finance la solidarité nationale. Nous appliquons le principe édifié par ...</h3>
-                    <a class="lien" href="protectpeople.html" class="lien">lire la suite</a>
+                    <a class="lien" href="acteur-protectpeople.php" class="lien">lire la suite</a>
                 </div>
             </div>
         </div>

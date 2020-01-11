@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 try
 {
     $bdd = new PDO('mysql:host=localhost;dbname=gbaf;charset=utf8', 'root','');
@@ -18,13 +18,15 @@ if(isset($_POST['connexion'])){
 
         if($userExist ==1){
             $userinfo= $requet->fetch();
-            session_start();
+            $_SESSION['nom'] =$userinfo['nom'];
+            $_SESSION['prenom'] =$userinfo['prenom'];
             $_SESSION['id'] =$userinfo['id'];
             $_SESSION['pseudo'] =$userinfo['pseudo'];
             $_SESSION['mdp'] =$userinfo['mdp'];
+            
 
 
-            header('Location: index.php?id='.$_SESSION['id']);
+            header('Location: index.php?info='.' '.$_SESSION['nom'].'  '.$_SESSION['prenom']);
 
         }
         else{
