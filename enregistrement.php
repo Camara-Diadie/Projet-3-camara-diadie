@@ -29,7 +29,7 @@ if(isset($_POST['enregistrement'])){
             ':reponse'=>$reponse]);
         var_dump($estExecuter);
         header('Location: connexion.php');
-    
+    var_dump('hey');
     }
     else{
         echo 'tout les champs ne sont pas renseigner!!!';

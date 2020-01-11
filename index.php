@@ -1,12 +1,18 @@
 <?php
 session_start();
- $bdd = new PDO('mysql:host=localhost;dbname=gbaf;charset=utf8', 'root','' );// variable bdd , connection a la base de donner 
+$bdd = new PDO('mysql:host=localhost;dbname=gbaf;charset=utf8', 'root','' );// variable bdd , connection a la base de donner 
 
- if(isset($_GET['id']) AND $_GET['id'] > 0 ){
-     $getId = intval($_GET['id']);
+if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
+{
+    
+}
+var_dump('bonjour');
+
      
- }
- var_dump('bonjour');
+
+     
+ 
+
  
 
  
@@ -18,13 +24,16 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="css/index.css">
     <title>Page Utilisateur</title>
 </head>
 <body>
     <header>
         <img class="logo-gbaf" src="./css/img/GBAF.png" alt="logo">
-        <div class="info-utilisateur">--x--</div>
+        <div class="info-utilisateur">
+            <p>profile de = <?php $_SESSION['id'];?></p>
+
+        </div>
     </header>
     <section id="presentation">
         <h1> Le GBAF est le représentant de la profession bancaire et des assureurs sur tous les axes de la reglementation financière française.<br> Sa mission est de promouvoir l'activité bancaire à l'échelle nationale. <br> C'est aussi un interlocuteur privilégié des pouvoirs publics.
@@ -77,6 +86,6 @@ session_start();
         </div>
         
     </footer>
-    
+
 </body>
 </html>
