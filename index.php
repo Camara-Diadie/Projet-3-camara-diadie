@@ -1,22 +1,50 @@
 <?php
 session_start();
-$bdd = new PDO('mysql:host=localhost;dbname=gbaf;charset=utf8', 'root','' );// variable bdd , connection a la base de donner 
-
-if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
+try
 {
-  
+    $bdd = new PDO('mysql:host=localhost;dbname=gbaf;charset=utf8', 'root','');
+    $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
 }
-var_dump('bonjour');
+catch(Exception $e){
+    die('erreur:'.$e->getMessage());
+}
+if(isset($_POST['connexion'])){
+    $pseudo = htmlspecialchars($_POST['pseudo']);
+    $mdp = sha1($_POST['mdp']);
+    if(!empty($pseudo) && !empty($mdp)){
+        $requet = $bdd->prepare('SELECT * FROM acteur_utilisateur WHERE nom_utilisateur = ? AND mot_de_pass = ?');
+        $requet->execute(array($pseudo, $mdp));
+        $userExist = $requet->rowCount();
 
-     
+        if($userExist ==1){
+            $userinfo= $requet->fetch();
+            $_SESSION['nom'] =$userinfo['nom'];
+            $_SESSION['prenom'] =$userinfo['prenom'];
+            $_SESSION['id'] =$userinfo['id'];
+            $_SESSION['pseudo'] =$userinfo['pseudo'];
+            $_SESSION['mdp'] =$userinfo['mdp'];
+            
 
-     
- 
 
- 
+            header('Location: accueil.php?info='.' '.$_SESSION['nom'].'  '.$_SESSION['prenom']);
 
- 
+        }
+        else{
+            echo' Les information ne sont pas carrecte ou veillez vous inscrire ';
+        }
+    }
+    else{
+        echo'veillez rensigner tout les champs svp!!';
+    }
+    
+    
+    
+}
+
 ?>
+
+
+
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -24,68 +52,35 @@ var_dump('bonjour');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/index.css">
-    <title>Page Utilisateur</title>
+    <link rel="stylesheet" href="css/connexion.css">
+    <title>Page Connexion GBAF</title>
 </head>
 <body>
     <header>
-        <img class="logo-gbaf" src="./css/img/GBAF.png" alt="logo">
-        <div class="info-utilisateur"><p><?php echo $_GET['info'];?></p>
-
-        </div>
+            <img class="logo-gbaf"src="css/img/GBAF.png" alt="logo">
     </header>
-    <a href="<?php echo $_SERVER["HTTP_REFERER"]; ?>">Retour à la page précédente</a>
-    <section id="presentation">
-        <h1> Le GBAF est le représentant de la profession bancaire et des assureurs sur tous les axes de la reglementation financière française.<br> Sa mission est de promouvoir l'activité bancaire à l'échelle nationale. <br> C'est aussi un interlocuteur privilégié des pouvoirs publics.
-        </h1>
-        <img class="ilustration" src="css/img/ilustration.jpg" alt="">
-    </section >
-            
-    <section id="info-acteur">
-        <h2>Les produits et services bancaires sont nombreux et très variés. <br> Afin de renseigner au mieux les clients, les salariés des 340 agences des banques et assurances en France (agents, chargés de clientèle, conseillers financiers, etc.)recherchent sur Internet des informations portant sur des produits bancaires et des financeurs, entre autres. <br> Aujourd’hui, il n’existe pas de base de données pour chercher ces informations de manière fiable et rapide ou pour donner son avis sur les partenaires et acteurs du secteur bancaire, tels que les associations ou les financeurs solidaires. <br> Pour remédier à cela, le GBAF souhaite proposer aux salariés des grands groupes français un point d’entrée unique, répertoriant un grand nombre d’informations sur les partenaires et acteurs du groupe ainsi que sur les produits et services bancaires et financiers. <br> Chaque salarié pourra ainsi poster un commentaire et donner son avis.</h2>
-        <div id="text-acteur"> 
-            <div class="acteur">
-                <img class="logo-acteur" src="./css/img/CDE.png" alt="logo">
-                <div class="presentation-entreprise">
-                    <h3 class="info">La CDE (Chambre Des Entrepreneurs) accompagne les entreprises dans leurs démarches de formation...</h3>
-                    <a class="lien" href="acteur-cde.php" class="lien">lire la suite</a> 
-                </div>
-            </div>
-
-            <div class="acteur">
-                <img class="logo-acteur"src="./css/img/Dsa_france.png" alt="logo">
-                <div class="presentation-entreprise">
-                    <h3 class="info">Dsa France accélère la croissance du territoire et s’engage avec les collectivités territoriales...</h3>
-                    <a class="lien" href="acteur-dsa-france.php" class="lien">lire la suite</a>
-                        
-                </div>
-            </div>
-
-            <div class="acteur">
-                <img class="logo-acteur" src="./css/img/formation_co.png" alt="logo">
-                <div class="presentation-entreprise">
-                    <h3 class="info">Formation&co est une association française présente sur tout le territoire. Nous proposons  ...</h3>
-                    <a class="lien" href="acteur-formation-co.php?info" class="lien">lire la suite</a>
-                                        
-                </div>
-            </div>
-
-            <div class="acteur">
-                <img class="logo-acteur" src="./css/img/protectpeople.png" alt="logo">
-                <div class="presentation-entreprise">
-                    <h3 class="info" >Protectpeople finance la solidarité nationale. Nous appliquons le principe édifié par ...</h3>
-                    <a class="lien" href="acteur-protectpeople.php" class="lien">lire la suite</a>
-                </div>
-            </div>
-        </div>
+    <section class="titre-connexion">
+            <h1>Bienvenue sur GBAF, page de Connexion</h1>
     </section>
-    <footer>
-        <div class="pied-page">
-        <a href="mention-legale.html"> Mention légales-&nbsp;</a>
-        <a href="contact.html"> Contact</a>
-        </div>
-        
-    </footer>
 
+    <section class="formulaire">
+        <form method="POST" action="" class="formulaire-connexion">
+                <h1>Se connecter </h1>
+                <label for="nom-utilisateur">Nom Utilisateur :</label><input type="text" placeholder="Entrer votre Nom" name="pseudo" id="pseudo" ></br>
+                
+                <label for="mot-de-passe">Mot de Passe :</label><input type="password" placeholder="Entrer votre Mot de passe" name="mdp" id="mdp" ></br>
+                
+                <input type="submit" name="connexion"id="submit" value="Connexion">
+
+        </form>
+            <h3>Si vous avez pas encore de compte veuillez vous enregistrer <a href="enregistrement.php">ici</a></h3>
+            <h3>si vous avez perdu vos identifiant </h3>
+    </section>
+
+    <footer>
+            <a href="mention-legale.html"> Mention légales-&nbsp;</a>
+            <a href="contact.html"> Contact</a>
+    </footer>
+    
 </body>
 </html>
