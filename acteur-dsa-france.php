@@ -59,9 +59,7 @@ while($donnees = $reponse->fetch())
         </form>
         <div class="affichage-commentaire">
         <h3>les commentaires des nos collaborateur</h3>
-        <?php echo $donnees['nom']; ?><br>
-        <?php echo $donnees['prenom']; ?>
-        <?php echo $donnees['commentaire']; ?>
+        
 
 
         </div>
