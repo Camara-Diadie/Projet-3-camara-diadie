@@ -1,5 +1,29 @@
 <?php
 session_start();
+try{
+    $bdd = new PDO('mysql:host=localhost;dbname=gbaf;charset=utf8', 'root','' );// variable bdd , connection a la base de donner 
+    $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+}
+catch(Execption $e){
+    die('erreur:'.$e->postMessage());
+}
+if(isset($_POST['envoyer'])){
+    if(!empty($_POST['commentaire'])){
+        $commentaire =htmlspecialchars($_POST['commentaire']);
+        $req =$bdd->prepare('INSERT INTO commentaires (commentaire, nom, prenom) VALUES (:commentaire, :nom, :prenom)');
+        $req->execute([
+            ':commentaire'=>$commentaire,
+            ':nom'=>$_SESSION['nom'],
+            'prenom'=>$_SESSION['prenom'],
+            ]);
+        var_dump('gool');
+    }
+}
+$reponse = $bdd->query('SELECT  nom, prenom, commentaire FROM commentaires');
+while($donnees = $reponse->fetch())
+{
+    
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -28,7 +52,23 @@ session_start();
     </section>
     <section id="commentaires">
         <h3>Commentaires</h3>
+        <form action="" method="POST">
+        <label for="commentaire">Votre commentaire</label>
+        <input type="text" name="commentaire" id="commentaire">
+        <input type="submit" value="envoyer" name='envoyer'>
+        </form>
+        <div class="affichage-commentaire">
+        <h3>les commentaires des nos collaborateur</h3>
+        <?php echo $donnees['nom']; ?><br>
+        <?php echo $donnees['prenom']; ?>
+        <?php echo $donnees['commentaire']; ?>
 
+
+        </div>
+<?php
+}
+$donnees->closeCursor();
+?>
     </section>
     <footer>
         <div class="pied-page">
