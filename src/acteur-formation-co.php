@@ -7,20 +7,20 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/acteur.css">
+    <link rel="stylesheet" href="img/acteur.css">
 
     <title>Page acteur FORMATION CO</title>
 </head>
 <body>  
     <header>
-        <img class="logo-gbaf" src="css/img/GBAF.png" alt="logo">
+        <img class="logo-gbaf" src="img/GBAF.png" alt="logo">
         </div>
         <div class="info-utilisateur"><p><?php echo $_SESSION['nom'].'  '.$_SESSION['prenom'];?></p></div>
 
     </header>
     <section id="contenu-texte">
         <h2>DSA FRANCE</h2>
-        <img class="logo-acteur" src="css/img/formation_co.png" alt="logo">
+        <img class="logo-acteur" src="img/formation_co.png" alt="logo">
         <h2>Formation&co est une association française présente sur tout le territoire.<br>Nous proposons à des personnes issues de tout milieu de devenir entrepreneur grâce à un crédit et un accompagnement professionnel et personnalisé.<br>Notre proposition : 
            <ul>
                 <li>un financement jusqu’à 30 000€ ;</li>

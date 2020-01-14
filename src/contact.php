@@ -9,7 +9,7 @@
 </head>
 <body>
 <header>
-    <img class="logo-gbaf" src="css/img/GBAF.png" alt="logo">
+    <img class="logo-gbaf" src="img/GBAF.png" alt="logo">
     <h1 class="titre-contact">Formulaire de Contact</h1>
     <p>Bonjour est bienvenu dans le formulair de contact de GBAF, Si vous désirez nous contacter pour plus de renseigement:
         <ul>

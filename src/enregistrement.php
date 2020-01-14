@@ -53,7 +53,7 @@ if(isset($_POST['enregistrement'])){
 </head>
 <body>
     <header class="logo">
-        <img class="logo-gbaf" src="css/img/GBAF.png" alt="logo">
+        <img class="logo-gbaf" src="img/GBAF.png" alt="logo">
     </header>
 
     <section class="titre-connexion">

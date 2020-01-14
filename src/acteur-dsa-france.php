@@ -37,14 +37,14 @@ while($donnees = $reponse->fetch())
 </head>
 <body>
     <header>
-        <img class="logo-gbaf" src="css/img/GBAF.png" alt="logo">
+        <img class="logo-gbaf" src="img/GBAF.png" alt="logo">
         </div>
         <div class="info-utilisateur"><p><?php echo $_SESSION['nom'].'  '.$_SESSION['prenom'];?></p></div>
 
     </header>
     <section id="contenu-texte">
         <h2>DSA FRANCE</h2>
-        <img class="logo-acteur" src="css/img/Dsa_france.png" alt="logo">
+        <img class="logo-acteur" src="img/Dsa_france.png" alt="logo">
         <h2>Dsa France accélère la croissance du territoire et s’engage avec les collectivités territoriales. Nous accompagnons les entreprises dans les étapes clés de leur évolution.Notre philosophie : s’adapter à chaque entreprise. Nous les accompagnons pour voir plus grand et plus loin et proposons des solutions de financement adaptées à chaque étape de la vie des entreprises
         </h2>
 

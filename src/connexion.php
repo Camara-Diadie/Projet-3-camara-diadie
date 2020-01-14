@@ -26,7 +26,7 @@ if(isset($_POST['connexion'])){
             
 
 
-            header('Location: accueil.php?info='.' '.$_SESSION['nom'].'  '.$_SESSION['prenom']);
+            header('Location: index.php?info='.' '.$_SESSION['nom'].'  '.$_SESSION['prenom']);
 
         }
         else{
@@ -57,7 +57,7 @@ if(isset($_POST['connexion'])){
 </head>
 <body>
     <header>
-            <img class="logo-gbaf"src="css/img/GBAF.png" alt="logo">
+            <img class="logo-gbaf"src="img/GBAF.png" alt="logo">
     </header>
     <section class="titre-connexion">
             <h1>Bienvenue sur GBAF, page de Connexion</h1>

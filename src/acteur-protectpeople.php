@@ -18,14 +18,14 @@ var_dump('bonjour');
 </head>
 <body>
     <header>
-        <img class="logo-gbaf" src="css/img/GBAF.png" alt="logo">
+        <img class="logo-gbaf" src="img/GBAF.png" alt="logo">
         </div>
         <div class="info-utilisateur"><p><?php echo $_SESSION['nom'].'  '.$_SESSION['prenom'];?></p></div>
 
     </header>
     <section id="contenu-texte">
         <h2>PROTECTPEOPLE</h2>
-        <img class="logo-acteur" src="css/img/protectpeople.png" alt="logo">
+        <img class="logo-acteur" src="img/protectpeople.png" alt="logo">
         <h2>Protectpeople finance la solidarité nationale.<br>Nous appliquons le principe édifié par la Sécurité sociale française en 1945 : permettre à chacun de bénéficier d’une protection sociale. Chez Protectpeople, chacun cotise selon ses moyens et reçoit selon ses besoins.Proectecpeople est ouvert à tous, sans considération d’âge ou d’état de santé.Nous garantissons un accès aux soins et une retraite.Chaque année, nous collectons et répartissons 300 milliards d’euros. Notre mission est double :
             <ul>
                 <li>sociale : nous garantissons la fiabilité des données sociales ;</li>
