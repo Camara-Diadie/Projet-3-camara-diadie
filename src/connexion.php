@@ -26,7 +26,7 @@ if(isset($_POST['connexion'])){
             
 
 
-            header('Location: index.php?info='.' '.$_SESSION['nom'].'  '.$_SESSION['prenom']);
+            header('Location: ../public/index.php?info='.' '.$_SESSION['nom'].'  '.$_SESSION['prenom']);
 
         }
         else{
@@ -52,12 +52,12 @@ if(isset($_POST['connexion'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/connexion.css">
+    <link rel="stylesheet" href="../public/css/connexion.css">
     <title>Page Connexion GBAF</title>
 </head>
 <body>
     <header>
-            <img class="logo-gbaf"src="img/GBAF.png" alt="logo">
+            <img class="logo-gbaf"src="../public/img/GBAF.png" alt="logo">
     </header>
     <section class="titre-connexion">
             <h1>Bienvenue sur GBAF, page de Connexion</h1>
@@ -73,14 +73,8 @@ if(isset($_POST['connexion'])){
                 <input type="submit" name="connexion"id="submit" value="Connexion">
 
         </form>
-            <h3>Si vous avez pas encore de compte veuillez vous enregistrer <a href="enregistrement.php">ici</a></h3>
+            <h3>Si vous avez pas encore de compte veuillez vous enregistrer <a href="../src/enregistrement.php">ici</a></h3>
             <h3>si vous avez perdu vos identifiant </h3>
     </section>
 
-    <footer>
-            <a href="mention-legale.html"> Mention légales-&nbsp;</a>
-            <a href="contact.html"> Contact</a>
-    </footer>
-    
-</body>
-</html>
+<?php include("../src/inlclude/footer.php")?>

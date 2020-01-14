@@ -48,12 +48,12 @@ if(isset($_POST['enregistrement'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/enregistrement.css">
+    <link rel="stylesheet" href="../public/css/enregistrement.css">
     <title>Page enregistrement</title>
 </head>
 <body>
     <header class="logo">
-        <img class="logo-gbaf" src="img/GBAF.png" alt="logo">
+        <img class="logo-gbaf" src="../public/img/GBAF.png" alt="logo">
     </header>
 
     <section class="titre-connexion">
@@ -78,10 +78,4 @@ if(isset($_POST['enregistrement'])){
             </form>
         </div>
     </section>
-    <footer>
-            <a href="page-mention-legale.html"> Mention légales-&nbsp;</a>
-            <a href="page-contact.html"> Contact</a>
-    </footer>
-    
-</body>
-</html>
+<?php include("../src/inlclude/footer.php")?>

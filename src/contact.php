@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="../public/css/contact.css">
     <title>Contact</title>
 </head>
 <body>
 <header>
-    <img class="logo-gbaf" src="img/GBAF.png" alt="logo">
+    <img class="logo-gbaf" src="../public/img/GBAF.png" alt="logo">
     <h1 class="titre-contact">Formulaire de Contact</h1>
     <p>Bonjour est bienvenu dans le formulair de contact de GBAF, Si vous désirez nous contacter pour plus de renseigement:
         <ul>
@@ -43,7 +43,4 @@
         </div>
     </form>
 </section>
-<footer>
-</footer> 
-</body>
-</html>
+<?php include("../src/inlclude/footer.php")?>

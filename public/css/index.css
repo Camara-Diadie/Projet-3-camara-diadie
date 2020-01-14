@@ -16,25 +16,15 @@ html {
 header{
     width: 100%;
     border-bottom: 5px solid red;
-
-    
-     
-     
 }
+
 .logo-gbaf{
     width: 100px;
     height: 100px;
     float: lef;
-    
- 
  }
- .info-utilisateur{
-    width: 100px;
-    height: 100px;
+ .info-session{
     float: right;
-   
-    
-   
  }
  #presentation{
     text-align: justify;
