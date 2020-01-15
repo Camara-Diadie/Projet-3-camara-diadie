@@ -19,13 +19,16 @@ catch(Execption $e){
 if(isset($_POST['envoyer'])){
     if(!empty($_POST['commentaire'])){
         $commentaire =htmlspecialchars($_POST['commentaire']);
-        $req =$bdd->prepare('INSERT INTO commentaires (commentaire, nom, prenom) VALUES (:commentaire, :nom, :prenom)');
+        $req =$bdd->prepare('INSERT INTO commentaires (commentaire, nom, prenom,date_creation_titre) VALUES (:commentaire, :nom, :prenom, now())');
         $req->execute([
             ':commentaire'=>$commentaire,
             ':nom'=>$_SESSION['nom'],
             'prenom'=>$_SESSION['prenom'],
+            'now()'=>$date_creation_titre
+            
             ]);
         var_dump('gool');
+        var_dump( $date_creation_titre);
     }
 }
 $reponse = $bdd->query('SELECT  nom, prenom, commentaire FROM commentaires');
@@ -60,8 +63,8 @@ $reponse = $bdd->query('SELECT  nom, prenom, commentaire FROM commentaires');
         <input type="text" name="commentaire" id="commentaire">
         <input type="submit" value="envoyer" name='envoyer'>
         </form>
-        <div class="affichage-commentaire">
-        <h3>les commentaires des nos collaborateur</h3>
+        
+        <h3 class="affichage-commentaire"> les commentaires des nos collaborateur
         <?php 
         while($donnees = $reponse->fetch()){
             echo $donnees['nom'].'</br>';
@@ -70,9 +73,9 @@ $reponse = $bdd->query('SELECT  nom, prenom, commentaire FROM commentaires');
         }
         ?>
         
+        </h3>
 
-
-        </div>
+        
 
     </section>
 <?php include("../src/include/footer.php")?>

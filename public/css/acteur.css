@@ -36,10 +36,14 @@ header{
     height: 150px;
 
 }
-.commentaires{
+#commentaires{
     border:2px solid red;
     padding: 5px;
 }
-.commentaires h3{
+#commentaires h3{
     text-align: center;
+}
+.affichage-commentaire{
+    border: 5px solid red;
+    padding: 5px;
 }
