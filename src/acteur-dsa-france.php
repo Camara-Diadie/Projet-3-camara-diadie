@@ -19,19 +19,19 @@ catch(Execption $e){
 if(isset($_POST['envoyer'])){
     if(!empty($_POST['commentaire'])){
         $commentaire =htmlspecialchars($_POST['commentaire']);
-        $req =$bdd->prepare('INSERT INTO commentaires (commentaire, nom, prenom,date_creation_titre) VALUES (:commentaire, :nom, :prenom, now())');
+        $req =$bdd->prepare('INSERT INTO commentaires (commentaire, nom, prenom, date_creation_titre) VALUES (:commentaire, :nom, :prenom, now())');
         $req->execute([
             ':commentaire'=>$commentaire,
             ':nom'=>$_SESSION['nom'],
-            'prenom'=>$_SESSION['prenom'],
-            'now()'=>$date_creation_titre
+            'prenom'=>$_SESSION['prenom']
+            
             
             ]);
         var_dump('gool');
-        var_dump( $date_creation_titre);
+
     }
 }
-$reponse = $bdd->query('SELECT  nom, prenom, commentaire FROM commentaires');
+$reponse = $bdd->query('SELECT  nom, prenom, commentaire, date_creation_titre FROM commentaires');
 
     
 
@@ -69,6 +69,7 @@ $reponse = $bdd->query('SELECT  nom, prenom, commentaire FROM commentaires');
         while($donnees = $reponse->fetch()){
             echo $donnees['nom'].'</br>';
             echo $donnees['commentaire'].'</br>';
+            echo $donnees['date_creation_titre'].'</br>';
 
         }
         ?>
