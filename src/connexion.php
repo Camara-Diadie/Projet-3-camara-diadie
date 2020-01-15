@@ -77,4 +77,4 @@ if(isset($_POST['connexion'])){
             <h3>si vous avez perdu vos identifiant </h3>
     </section>
 
-<?php include("../src/inlclude/footer.php")?>
+<?php include("../src/include/footer.php")?>

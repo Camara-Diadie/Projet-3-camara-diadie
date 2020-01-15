@@ -78,4 +78,4 @@ if(isset($_POST['enregistrement'])){
             </form>
         </div>
     </section>
-<?php include("../src/inlclude/footer.php")?>
+<?php include("../src/include/footer.php")?>

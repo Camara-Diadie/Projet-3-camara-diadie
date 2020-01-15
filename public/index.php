@@ -1,21 +1,6 @@
 <?php
 session_start();
-$bdd = new PDO('mysql:host=localhost;dbname=gbaf;charset=utf8', 'root','' );// variable bdd , connection a la base de donner 
 
-if (isset($_SESSION['id']) AND isset($_SESSION['pseudo']))
-{
-  
-}
-var_dump('bonjour');
-
-     
-
-     
- 
-
- 
-
- 
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +14,7 @@ var_dump('bonjour');
 </head>
 <body>
 <?php include("../src/include/header-acteur.php")?>
-    <a href="<?php echo $_SERVER["HTTP_REFERER"]; ?>">Retour à la page précédente</a>
+    
     <section id="presentation">
         <h1> Le GBAF est le représentant de la profession bancaire et des assureurs sur tous les axes de la reglementation financière française.<br> Sa mission est de promouvoir l'activité bancaire à l'échelle nationale. <br> C'est aussi un interlocuteur privilégié des pouvoirs publics.
         </h1>

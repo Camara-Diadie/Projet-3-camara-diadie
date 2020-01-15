@@ -1,7 +1,16 @@
 <?php
 session_start();
+if(isset($_SESSION['nom']) AND $_SESSION['prenom'])
+{
+  
+}
+else
+{
+  header('location: ../src/connexion.php');
+}
+     
 try{
-    $bdd = new PDO('mysql:host=localhost;dbname=gbaf;charset=utf8', 'root','' );// variable bdd , connection a la base de donner 
+    $bdd = new PDO('mysql:host=localhost;dbname=gbaf;charset=utf8', 'root','' );
     $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
 }
 catch(Execption $e){
@@ -20,8 +29,7 @@ if(isset($_POST['envoyer'])){
     }
 }
 $reponse = $bdd->query('SELECT  nom, prenom, commentaire FROM commentaires');
-while($donnees = $reponse->fetch())
-{
+
     
 
 ?>
@@ -54,14 +62,17 @@ while($donnees = $reponse->fetch())
         </form>
         <div class="affichage-commentaire">
         <h3>les commentaires des nos collaborateur</h3>
-        <?php echo $donnees?>
+        <?php 
+        while($donnees = $reponse->fetch()){
+            echo $donnees['nom'].'</br>';
+            echo $donnees['commentaire'].'</br>';
+
+        }
+        ?>
         
 
 
         </div>
-<?php
-}
-$donnees->closeCursor();
-?>
+
     </section>
 <?php include("../src/include/footer.php")?>

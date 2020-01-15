@@ -43,4 +43,4 @@
         </div>
     </form>
 </section>
-<?php include("../src/inlclude/footer.php")?>
+<?php include("../src/include/footer.php")?>
