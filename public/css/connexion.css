@@ -1,50 +1,53 @@
- body{
-     height: 100%;
- }
- html {
-  margin: 0;
-  padding: 0;
-  margin-left: 20px;
-  margin-right: 20px;
-  font-style: normal;
-  font-family: sans-serif;
- }
- .logo-gbaf{
-  width: 100px;
-  height: 100px;
+body{
+  height: 100%;
+}
+html {
+ margin: 0;
+ padding: 0;
+ border: 20px;
+ margin-left: 20px;
+ margin-right: 20px;
+ font-style: normal;
+ font-family: sans-serif;
+}
+/* page connexion.php et enregistrement.php*/
+.logo-gbaf{
+  width: 150px;
+  height: 150px;
   display: block;
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
- }
- .titre-connexion h1    {
-    text-align: center;
-    
- }
- .formulaire{
-   text-align: center;
-   
- }
- .formulaire-connexion{
-   
+}
+.titre-connexion h1    {
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.formulaire{
   text-align: center;
   padding: 15px 15px 15px 15px;
   border: 3px solid red ;
-  width: 200px;
+  border-radius: 10px;
+  width: 300px;
   height: auto;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 100px;
- }
- label{
-  font-size: 15px;
- }
-
- input{
+}
+label{
+  font-size: 25px;
+}
+input{
   border-radius: 3px;
- }
- /* essayer de modifier le footer */
- footer{
-   bottom: 0;
-   text-align: center;
- }
+  font-size: 25px;
+}
+.autre-option{
+  background-color: rgba(255, 31, 31, 0.452);
+  text-align: center;
+}
+
+footer{ 
+  bottom: 0;
+  text-align: center;
+}

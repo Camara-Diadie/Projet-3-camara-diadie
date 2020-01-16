@@ -1,0 +1,116 @@
+body{
+    height: 100%;
+  }
+  html {
+   margin: 0;
+   padding: 0;
+   border: 20px;
+   margin-left: 20px;
+   margin-right: 20px;
+   font-style: normal;
+   font-family: fantasy;
+  }
+  /* page connexion.php et enregistrement.php*/
+  .logo-gbaf{
+    width: 150px;
+    height: 150px;
+    display: block;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .titre-connexion h1    {
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  .formulaire{
+    text-align: center;
+    padding: 15px 15px 15px 15px;
+    border: 3px solid red ;
+    border-radius: 10px;
+    width: 300px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 100px;
+  }
+  label{
+    font-size: 25px;
+  }
+  input{
+    border-radius: 3px;
+    font-size: 25px;
+  }
+  .autre-option{
+    background-color: rgba(255, 31, 31, 0.452);
+    text-align: center;
+  }
+
+  /* page index.php*/
+  header{
+    padding-top: 15px;
+    width: 100%;
+    border-bottom: 5px solid red;
+}
+.logo-header{
+    width: 100px;
+    height: 100px;
+    float: lef;
+    padding: 5px;
+ }
+ .info-session{
+    float: right;
+    text-align: center;
+    border: red solid 2px;
+    padding: 0 3px 7px 3px;
+    border-radius: 10px;
+ }
+ .presentation{
+    text-align: justify;
+    margin-bottom: 50px;
+    padding-bottom: 20px;
+    border-bottom: 5px solid red;
+ }
+ .ilustration{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+ }
+ .info-acteur{
+     margin-top: 20px;
+ }
+.text-acteur{
+    border:5px solid red ;
+    border-radius: 10px;
+    padding: 10px 10px 10px 10px;
+    margin-top: 20px;
+    background-color: rgba(255, 31, 31, 0.10);
+}
+.acteur1,.acteur2,.acteur3,.acteur4{
+    text-align: left;
+    border: 2px solid red ;
+    margin: 10px 10px 25px 10px;
+    padding: 10px 10px 10px 10px;
+    background-color: white;
+}
+.logo-acteur{
+    width: 150px;
+    height: 100px;
+   display: inline-block
+}
+.lien{
+    border: 2px black solid;
+    border-radius: 10px;
+    padding: 0 5px 0 5px;
+}
+.info{
+    display: inline-block;
+}
+/* */
+  
+  footer{ 
+    padding-top:15px ;
+    bottom: 0;
+    text-align: center;
+  }

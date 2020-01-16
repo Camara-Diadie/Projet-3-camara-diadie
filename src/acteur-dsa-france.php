@@ -24,14 +24,12 @@ if(isset($_POST['envoyer'])){
             ':commentaire'=>$commentaire,
             ':nom'=>$_SESSION['nom'],
             'prenom'=>$_SESSION['prenom']
-            
-            
             ]);
         var_dump('gool');
 
     }
 }
-$reponse = $bdd->query('SELECT  nom, prenom, commentaire, date_creation_titre FROM commentaires');
+$reponse = $bdd->query('SELECT  prenom, commentaire,date_creation_titre  FROM commentaires');
 
     
 
@@ -50,7 +48,7 @@ $reponse = $bdd->query('SELECT  nom, prenom, commentaire, date_creation_titre FR
 <?php include("../src/include/header-acteur.php")?>
     <section id="contenu-texte">
         <h2>DSA FRANCE</h2>
-        <img class="logo-acteur" src="../public/img/Dsa_france.png" alt="logo">
+        <img class="logo-acteur2" src="../public/img/Dsa_france.png" alt="logo">
         <h2>Dsa France accélère la croissance du territoire et s’engage avec les collectivités territoriales. Nous accompagnons les entreprises dans les étapes clés de leur évolution.Notre philosophie : s’adapter à chaque entreprise. Nous les accompagnons pour voir plus grand et plus loin et proposons des solutions de financement adaptées à chaque étape de la vie des entreprises
         </h2>
 
@@ -60,23 +58,21 @@ $reponse = $bdd->query('SELECT  nom, prenom, commentaire, date_creation_titre FR
         <h3>Commentaires</h3>
         <form action="" method="POST">
         <label for="commentaire">Votre commentaire</label>
-        <input type="text" name="commentaire" id="commentaire">
+        <input class="champs" type="text" name="commentaire" id="commentaire" size="27px">
         <input type="submit" value="envoyer" name='envoyer'>
         </form>
         
-        <h3 class="affichage-commentaire"> les commentaires des nos collaborateur
-        <?php 
-        while($donnees = $reponse->fetch()){
-            echo $donnees['nom'].'</br>';
-            echo $donnees['commentaire'].'</br>';
-            echo $donnees['date_creation_titre'].'</br>';
-
+        <h3 class="affichage-commentaire"> les commentaires des nos collaborateur</h3>
+		  <?php 
+        for($donnees = 0 ; $donnees =$reponse->fetch(); $donnees++){
+			?>
+			<div class="les-commentaire">
+			<p><?php echo $donnees['prenom'].'</br>';?></p>
+			<p><?php echo $donnees['date_creation_titre'].'</br>';?></p>
+			<p><?php echo $donnees['commentaire'].'</br>';?></p>
+			</div>
+			<?php
         }
         ?>
-        
-        </h3>
-
-        
-
     </section>
 <?php include("../src/include/footer.php")?>

@@ -14,7 +14,7 @@ header{
     border-bottom: 5px solid red;
 }
 
-.logo-gbaf{
+.logo-header{
     width: 100px;
     height: 100px;
     float: lef;
@@ -22,13 +22,12 @@ header{
  .info-session{
     float: right;
  }
- footer{
-    margin-top: 20px;
-    bottom: 0px;
-    left: 65px;
-    position: absolute;
-}
-.logo-acteur{   
+ footer{ 
+    padding-top:15px ;
+    bottom: 0;
+    text-align: center;
+  }
+  .acteur1,.logo-acteur2,.logo-acteur3,.logo-acteur4{   
      display: block;
     margin-left: auto;
     margin-right: auto;
@@ -41,9 +40,17 @@ header{
     padding: 5px;
 }
 #commentaires h3{
-    text-align: center;
+    text-align: left;
 }
-.affichage-commentaire{
-    border: 5px solid red;
-    padding: 5px;
+
+.les-commentaire{
+    border: 3px solid red;
+    margin: 3px 3px 3px 3px;
+    padding: 3px 3px 3px 3px; 
+    
+    
+}
+.champs{
+    height:auto;
+    width:auto;
 }

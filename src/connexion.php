@@ -52,29 +52,28 @@ if(isset($_POST['connexion'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../public/css/connexion.css">
+    <link rel="stylesheet" href="../public/css/styl.css">
     <title>Page Connexion GBAF</title>
 </head>
 <body>
     <header>
-            <img class="logo-gbaf"src="../public/img/GBAF.png" alt="logo">
+        <img class="logo-gbaf"src="../public/img/GBAF.png" alt="logo">
     </header>
     <section class="titre-connexion">
-            <h1>Bienvenue sur GBAF, page de Connexion</h1>
+        <h1>Bienvenue sur GBAF, page de Connexion</h1>
     </section>
-
     <section class="formulaire">
-        <form method="POST" action="" class="formulaire-connexion">
-                <h1>Se connecter </h1>
-                <label for="nom-utilisateur">Nom Utilisateur :</label><input type="text" placeholder="Entrer votre Nom" name="pseudo" id="pseudo" ></br>
-                
-                <label for="mot-de-passe">Mot de Passe :</label><input type="password" placeholder="Entrer votre Mot de passe" name="mdp" id="mdp" ></br>
-                
-                <input type="submit" name="connexion"id="submit" value="Connexion">
-
-        </form>
-            <h3>Si vous avez pas encore de compte veuillez vous enregistrer <a href="../src/enregistrement.php">ici</a></h3>
+        <form method="POST" action="">
+            <h1>Se connecter </h1>
+            <label for="nom-utilisateur">Pseudo Utilisateur :</label><input type="text" placeholder=" votre Pseudo" name="pseudo" id="pseudo" ></br>
+            <label for="mot-de-passe">Mot de Passe :</label><input type="password" placeholder=" votre Mot de passe" name="mdp" id="mdp" ></br>
+            <input type="submit" name="connexion"id="submit" value="Connexion">
+        </form>    
+    </section>
+    <section class="autre-option">
+            <h3>Si c'est votre premier visite sur le site vous devez vous crée un compte<a href="../src/enregistrement.php">ici</a></h3>
             <h3>si vous avez perdu vos identifiant </h3>
     </section>
+
 
 <?php include("../src/include/footer.php")?>

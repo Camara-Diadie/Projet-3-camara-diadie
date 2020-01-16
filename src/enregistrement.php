@@ -48,11 +48,11 @@ if(isset($_POST['enregistrement'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../public/css/enregistrement.css">
+    <link rel="stylesheet" href="../public/css/styl.css">
     <title>Page enregistrement</title>
 </head>
 <body>
-    <header class="logo">
+    <header>
         <img class="logo-gbaf" src="../public/img/GBAF.png" alt="logo">
     </header>
 
@@ -61,21 +61,19 @@ if(isset($_POST['enregistrement'])){
     </section>
 
     <section class="formulaire">
-        <div class="formulaire-enregistrement">
             <form method="POST" action="">
                 <h1>Création de compte GBAF</h1>
                 <label for="nom">Nom : </label>
                 <input type="text" placeholder="Entrer votre Nom" name="nom" id="nom" ><br>
                 <label for="prenom">Prénom : </label>
                 <input type="text" placeholder="Entrer votre Prénom" name="prenom" id="prenom" ><br>
-                <label for="utilisateur">Nom d'utilisateur : </label>
-                <input type="text" placeholder="Nom d'utilisateur" name="pseudo" id="pseudo" ></br>
+                <label for="utilisateur">Pseudo d'utilisateur : </label>
+                <input type="text" placeholder="Pseudo d'utilisateur" name="pseudo" id="pseudo" ></br>
                 <label for="mot-de-passe"> Mot de passe :</label>
                 <input type="password" placeholder="votre Mdp" name="mdp" id="mdp" ><br>
-                <label for="question">Qestion secret <SELECT name="question" size="0"><OPTION>le nom de votre animal<OPTION>le nom de votre meilleur ami(e)</SELECT></label>
+                <label for="question">Qestion secret:<SELECT name="question" size="0"><OPTION>le nom de votre animal<OPTION>le nom de votre meilleur ami(e)</SELECT></label>
                 <input type="text" placeholder="Réponse" name="reponse" id="reponse" ><br>
                 <input type="submit"  id="submit" name="enregistrement" value="Enregistré">
             </form>
-        </div>
     </section>
 <?php include("../src/include/footer.php")?>

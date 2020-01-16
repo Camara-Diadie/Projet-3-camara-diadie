@@ -10,77 +10,14 @@ html {
    margin-left: auto;
    margin-right: auto;
    font-style: normal;
-   font-family: sans-serif;
+   font-family: fantasy;
    text-align: justify;
-}
-header{
-    width: 100%;
-    border-bottom: 5px solid red;
+   padding-left: 15px;
+   padding-right: 15px;
 }
 
-.logo-gbaf{
-    width: 100px;
-    height: 100px;
-    float: lef;
- }
- .info-session{
-    float: right;
- }
- #presentation{
-    text-align: justify;
-    margin-bottom: 50px;
-    padding-bottom: 10px;
-    border-bottom: 5px solid red;
- }
- .ilustration{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-
- }
- #info-acteur{
-     margin-top: 20px;
- }
-#text-acteur{
-    border:5px solid red ;
-    padding: 10px 10px 10px 10px;
-    margin-top: 20px;
-
-}
-.acteur{
-    border: 2px solid red ;
-    margin: 10px 10px 10px 10px;
-    padding: 10px 10px 10px 10px;
-    
-
-}
-/* redimensioner les images */
-.logo-acteur{
-    width: 150px;
-    height: 100px;
-  
-    
-
-}
-.presentation-entreprise{
-    display: inline-block;
-
- }
-
-
-.lien{
-    display: inline-block;
-    border: 2px black solid;
-    size: 20px;
-    border-radius: 10px;
-
-}
-.info{
-    display: inline-block;
-    
-}
 footer{
-    margin-top: 20px;
+    
     bottom: 0;
     text-align: center;
 }

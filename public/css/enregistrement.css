@@ -11,8 +11,8 @@ html {
    font-family: sans-serif;
 }
 .logo-gbaf{
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     display: block;
     margin-top: 20px;
     margin-left: auto;
@@ -20,29 +20,29 @@ html {
  }
  .titre-connexion h1    {
     text-align: center;
-    
+    padding-top: 15px;
+    padding-bottom: 15px;
  }
- .formulaire-enregistrement{
-    background-color: yellow;
+ .formulaire{
     text-align: center;
     padding: 15px 15px 15px 15px;
     border: 3px solid red ;
-    width: 200px;
+    border-radius: 10px;
+    width: 300px;
     height: auto;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 100px;
 }
 label{
-    font-size: 15px;
+    font-size: 25px;
 }
-
 input{
     border-radius: 3px;
+    font-size: 25px;
 }
 
-footer{
-    background-color: red;
+footer{ 
     bottom: 0;
     text-align: center;
 }
