@@ -48,7 +48,7 @@ if(isset($_POST['enregistrement'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../public/css/styl.css">
+    <link rel="stylesheet" href="../public/css/style.css">
     <title>Page enregistrement</title>
 </head>
 <body>
@@ -71,7 +71,14 @@ if(isset($_POST['enregistrement'])){
                 <input type="text" placeholder="Pseudo d'utilisateur" name="pseudo" id="pseudo" ></br>
                 <label for="mot-de-passe"> Mot de passe :</label>
                 <input type="password" placeholder="votre Mdp" name="mdp" id="mdp" ><br>
-                <label for="question">Qestion secret:<SELECT name="question" size="0"><OPTION>le nom de votre animal<OPTION>le nom de votre meilleur ami(e)</SELECT></label>
+                <label for="question">Qestion secret:</label>
+                <select name="question">
+                    <option value="">--Choix de la question--</option>
+                    <option >Quel est le nom de votre animal</option>
+                    <option >Votre coleur préferer</option>
+                    <option >Lieu de naissance </option>
+                    <option >chiffre préferer</option>
+                </select>
                 <input type="text" placeholder="Réponse" name="reponse" id="reponse" ><br>
                 <input type="submit"  id="submit" name="enregistrement" value="Enregistré">
             </form>
