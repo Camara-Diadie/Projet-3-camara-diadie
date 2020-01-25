@@ -19,7 +19,7 @@ catch(Execption $e){
 if(isset($_POST['envoyer'])){
     if(!empty($_POST['commentaire'])){
         $commentaire =htmlspecialchars($_POST['commentaire']);
-        $req =$bdd->prepare('INSERT INTO commentaires (commentaire, nom, prenom, date_creation_titre) VALUES (:commentaire, :nom, :prenom, now())');
+        $req =$bdd->prepare('INSERT INTO commentaires_dsa (commentaire, nom, prenom, date_creation_titre) VALUES (:commentaire, :nom, :prenom, now())');
         $req->execute([
             ':commentaire'=>$commentaire,
             ':nom'=>$_SESSION['nom'],
@@ -29,7 +29,7 @@ if(isset($_POST['envoyer'])){
 
     }
 }
-$reponse = $bdd->query('SELECT  prenom, commentaire,date_creation_titre  FROM commentaires');
+$reponse = $bdd->query('SELECT  prenom, commentaire,date_creation_titre  FROM commentaires_dsa');
 
     
 
@@ -64,7 +64,7 @@ $reponse = $bdd->query('SELECT  prenom, commentaire,date_creation_titre  FROM co
         
         <h3 class="affichage-commentaire"> les commentaires des nos collaborateur</h3>
 		  <?php 
-        for($donnees = 0 ; $donnees =$reponse->fetch(); $donnees++){
+        while($donnees = $reponse->fetch()){
 			?>
 			<div class="les-commentaire">
 			<p><?php echo $donnees['prenom'].'</br>';?></p>
