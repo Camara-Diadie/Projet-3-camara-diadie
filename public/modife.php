@@ -10,50 +10,60 @@ catch(Execption $e){
 
 if(isset($_SESSION['nom']) AND $_SESSION['prenom'])
 {
-    $reqUser = $bdd->prepare("SELECT * FROM acteur_utilisateur WHERE id = ?");
-    $reqUser->execute(array($_SESSION['id']));
+    $reqUser = $bdd->prepare("SELECT * FROM acteur_utilisateur WHERE id = :id");
+    $reqUser->execute([
+        ':id'=>$_SESSION['id']
+        ]);
     $infoUser = $reqUser->fetch();
 
-    if(isset($_POST['newnom']) AND !empty($_POST['newnom']) AND $_POST['newnom'] != $infoUser['nom']) {
-        $newnom = htmlspecialchars($_POST['newnom']);
-        $insertnom = $bdd->prepare("UPDATE acteur_utilisateur SET nom = ? WHERE id = ?");
-        $insertnom->execute(array($newnom, $_SESSION['id']));
+    if(isset($_POST['nouveau_nom']) AND !empty($_POST['nouveau_nom']) AND $_POST['nouveau_nom'] != $infoUser['nom']) {
+        $nouveau_nom = htmlspecialchars($_POST['nouveau_nom']);
+        $insertNom = $bdd->prepare("UPDATE acteur_utilisateur SET nom = :nom WHERE id = :id");
+        $insertNom->execute([
+        ':nom'=>$nouveau_nom,
+        ':id'=>$_SESSION['id']
+        ]);
         header('Location: ../public/index.php');
  
         
      }
-     if(isset($_POST['newprenom']) AND !empty($_POST['newprenom']) AND $_POST['newprenom'] != $infoUser['prenom']) {
-         $newmprenom = htmlspecialchars($_POST['newprenom']);
-         $insertprenom = $bdd->prepare("UPDATE acteur_utilisateur SET prenom = ? WHERE id = ?");
-         $insertprenom->execute(array($newprenom, $_SESSION['id']));
+     if(isset($_POST['nouveau_prenom']) AND !empty($_POST['nouveau_prenom']) AND $_POST['nouveau_prenom'] != $infoUser['prenom']) {
+         $nouveau_mprenom = htmlspecialchars($_POST['nouveau_prenom']);
+         $insertPrenom = $bdd->prepare("UPDATE acteur_utilisateur SET prenom = :prenom WHERE id = :id");
+         $insertPrenom->execute([
+             ':prenom'=>$nouveau_prenom,
+             ':id'=>$_SESSION['id']
+             ]);
          header('Location: ../public/index.php');
       }
     
 
-    if(isset($_POST['newpseudo']) AND !empty($_POST['newpseudo']) AND $_POST['newpseudo'] != $infoUser['pseudo']) {
-        $newpseudo = htmlspecialchars($_POST['newpseudo']);
-        $insertpseudo = $bdd->prepare("UPDATE acteur_utilisateur SET nom_utilisateur = ? WHERE id = ?");
-        $insertpseudo->execute(array($newpseudo, $_SESSION['id']));
+    if(isset($_POST['nouveau_pseudo']) AND !empty($_POST['nouveau_pseudo']) AND $_POST['nouveau_pseudo'] != $infoUser['pseudo']) {
+        $nouveau_pseudo = htmlspecialchars($_POST['nouveau_pseudo']);
+        $insertPseudo = $bdd->prepare("UPDATE acteur_utilisateur SET nom_utilisateur = :nouveau_pseudo WHERE id = :id");
+        $insertPseudo->execute([':nouveau_pseudo'=> $nouveau_pseudo, 
+        ':id'=>$_SESSION['id']
+        ]);
         header('Location: ../public/index.php');
     }
     
-    if(isset($_POST['newmdp']) AND !empty($_POST['newmdp']) AND $_POST['newmdp'] != $infoUser['mot_de_pass']) {
-        $newmdp = sha1($_POST['newmdp']);
+    if(isset($_POST['nouveau_mdp']) AND !empty($_POST['nouveau_mdp']) AND $_POST['nouveau_mdp'] != $infoUser['mot_de_pass']) {
+        $nouveau_mdp = sha1($_POST['nouveau_mdp']);
         $insertmdp = $bdd->prepare("UPDATE acteur_utilisateur  SET mot_de_pass = ? WHERE id = ?");
-        $insertmdp->execute(array($newmdp, $_SESSION['id']));
+        $insertmdp->execute(array($nouveau_mdp, $_SESSION['id']));
         header('Location: ../public/index.php');
        }
            
-    if(isset($_POST['newquestion']) AND !empty($_POST['newquestion']) AND $_POST['newquestion'] != $infoUser['question']) {
-        $newquestion = htmlspecialchars($_POST['newquestion']);
+    if(isset($_POST['nouveau_question']) AND !empty($_POST['nouveau_question']) AND $_POST['nouveau_question'] != $infoUser['question']) {
+        $nouveau_question = htmlspecialchars($_POST['nouveau_question']);
         $insertquestion = $bdd->prepare("UPDATE acteur_utilisateur  SET question = ? WHERE id = ?");
-        $insertquestion->execute(array($newquestion, $_SESSION['id']));
+        $insertquestion->execute(array($nouveau_question, $_SESSION['id']));
         header('Location: ../public/index.php');
         }
-        if(isset($_POST['newreponse']) AND !empty($_POST['newreponse']) AND $_POST['newreponse'] != $infoUser['reponse']) {
-            $newreponse = sha1($_POST['newreponse']);
+        if(isset($_POST['nouveau_reponse']) AND !empty($_POST['nouveau_reponse']) AND $_POST['nouveau_reponse'] != $infoUser['reponse']) {
+            $nouveau_reponse = sha1($_POST['nouveau_reponse']);
             $insertreponse = $bdd->prepare("UPDATE acteur_utilisateur  SET reponse = ? WHERE id = ?");
-            $insertreponse->execute(array($newreponse, $_SESSION['id']));
+            $insertreponse->execute(array($nouveau_reponse, $_SESSION['id']));
              header('Location: ../public/index.php');
             }
          else {
@@ -84,22 +94,22 @@ if(isset($_SESSION['nom']) AND $_SESSION['prenom'])
             <form method="POST" action="">
                 <h1>Parametre de compte GBAF</h1>
                 <label for="utilisateur">votre nouveaux nom : </label>
-                <input type="text" placeholder=" nouveaux nom" name="newnom" id="nom" ></br>
+                <input type="text" placeholder=" nouveaux nom" name="nouveau_nom" id="nom" ></br>
                 <label for="utilisateur">votre nouveaux prenom : </label>
-                <input type="text" placeholder=" nouveaux prenom" name="newprenom" id="prenom" ></br>
+                <input type="text" placeholder=" nouveaux prenom" name="nouveau_prenom" id="prenom" ></br>
                 <label for="utilisateur">votre nouveaux pseudo d'utilisateur : </label>
-                <input type="text" placeholder=" nouveaux Pseudo" name="newpseudo" id="pseudo"  ></br>
+                <input type="text" placeholder=" nouveaux Pseudo" name="nouveau_pseudo" id="pseudo"  ></br>
                 <label for="mot-de-passe">votre nouveaux  mot de passe :</label>
-                <input type="password" placeholder="votre nouveaux Mdp" name="newmdp" id="mdp" ><br>
+                <input type="password" placeholder="votre nouveaux Mdp" name="nouveau_mdp" id="mdp" ><br>
                 <label for="question">Qestion secret:</label>
-                <select name="newquestion">
+                <select name="nouveau_question">
                     <option value="">--Choix de la question--</option>
                     <option >Quel est le nom de votre animal</option>
                     <option >Votre coleur préferer</option>
                     <option >Lieu de naissance </option>
                     <option >chiffre préferer</option>
                 </select>
-                <input type="text" placeholder=" nouvelle réponse" name="newreponse" id="reponse" ><br>
+                <input type="text" placeholder=" nouvelle réponse" name="nouveau_reponse" id="reponse" ><br>
                 <input type="submit"id="submit" name="modifier" value="modifier">
             </form>
     </section>
