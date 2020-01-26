@@ -20,9 +20,9 @@ if(isset($_SESSION['nom']) AND $_SESSION['prenom'])
         $nouveau_nom = htmlspecialchars($_POST['nouveau_nom']);
         $insertNom = $bdd->prepare("UPDATE acteur_utilisateur SET nom = :nom WHERE id = :id");
         $insertNom->execute([
-        ':nom'=>$nouveau_nom,
-        ':id'=>$_SESSION['id']
-        ]);
+            ':nom'=>$nouveau_nom,
+            ':id'=>$_SESSION['id']
+            ]);
         header('Location: ../public/index.php');
  
         
@@ -33,7 +33,7 @@ if(isset($_SESSION['nom']) AND $_SESSION['prenom'])
          $insertPrenom->execute([
              ':prenom'=>$nouveau_prenom,
              ':id'=>$_SESSION['id']
-             ]);
+            ]);
          header('Location: ../public/index.php');
       }
     
@@ -41,29 +41,39 @@ if(isset($_SESSION['nom']) AND $_SESSION['prenom'])
     if(isset($_POST['nouveau_pseudo']) AND !empty($_POST['nouveau_pseudo']) AND $_POST['nouveau_pseudo'] != $infoUser['pseudo']) {
         $nouveau_pseudo = htmlspecialchars($_POST['nouveau_pseudo']);
         $insertPseudo = $bdd->prepare("UPDATE acteur_utilisateur SET nom_utilisateur = :nouveau_pseudo WHERE id = :id");
-        $insertPseudo->execute([':nouveau_pseudo'=> $nouveau_pseudo, 
-        ':id'=>$_SESSION['id']
-        ]);
+        $insertPseudo->execute([
+            ':nouveau_pseudo'=> $nouveau_pseudo, 
+            ':id'=>$_SESSION['id']
+            ]);
         header('Location: ../public/index.php');
     }
     
     if(isset($_POST['nouveau_mdp']) AND !empty($_POST['nouveau_mdp']) AND $_POST['nouveau_mdp'] != $infoUser['mot_de_pass']) {
         $nouveau_mdp = sha1($_POST['nouveau_mdp']);
-        $insertmdp = $bdd->prepare("UPDATE acteur_utilisateur  SET mot_de_pass = ? WHERE id = ?");
-        $insertmdp->execute(array($nouveau_mdp, $_SESSION['id']));
+        $insertmdp = $bdd->prepare("UPDATE acteur_utilisateur  SET mot_de_pass = :nouveau_mdp WHERE id = :id");
+        $insertmdp->execute([
+            ':nouveau_mdp'=> $nouveau_pseudo,
+            ':id'=>$_SESSION['id']
+            ]);
         header('Location: ../public/index.php');
        }
            
     if(isset($_POST['nouveau_question']) AND !empty($_POST['nouveau_question']) AND $_POST['nouveau_question'] != $infoUser['question']) {
         $nouveau_question = htmlspecialchars($_POST['nouveau_question']);
-        $insertquestion = $bdd->prepare("UPDATE acteur_utilisateur  SET question = ? WHERE id = ?");
-        $insertquestion->execute(array($nouveau_question, $_SESSION['id']));
+        $insertQuestion = $bdd->prepare("UPDATE acteur_utilisateur  SET question = :nouveau_question? WHERE id = :id");
+        $insertQuestion->execute([
+            ':$nouveau_question'=$nouveau_question, 
+            ':id'=>$_SESSION['id']
+            ]);
         header('Location: ../public/index.php');
         }
         if(isset($_POST['nouveau_reponse']) AND !empty($_POST['nouveau_reponse']) AND $_POST['nouveau_reponse'] != $infoUser['reponse']) {
             $nouveau_reponse = sha1($_POST['nouveau_reponse']);
-            $insertreponse = $bdd->prepare("UPDATE acteur_utilisateur  SET reponse = ? WHERE id = ?");
-            $insertreponse->execute(array($nouveau_reponse, $_SESSION['id']));
+            $insertReponse = $bdd->prepare("UPDATE acteur_utilisateur  SET reponse = :nouveau_reponse WHERE id = :id");
+            $insertReponse->execute([
+                ':nouveau_reponse'=>$nouveau_reponse,
+                ':id'=>$_SESSION['id']
+            ]);
              header('Location: ../public/index.php');
             }
          else {
