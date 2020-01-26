@@ -27,8 +27,8 @@ header{
     bottom: 0;
     text-align: center;
   }
-  .acteur1,.logo-acteur2,.logo-acteur3,.logo-acteur4{   
-     display: block;
+  .logo-acteur1, .logo-acteur2, .logo-acteur3, .logo-acteur4{   
+    display: block;
     margin-left: auto;
     margin-right: auto;
     width: 550px;

@@ -48,7 +48,7 @@ $reponse = $bdd->query('SELECT  prenom, commentaire,date_creation_titre  FROM co
 <?php include("../src/include/header-acteur.php")?>
     <section id="contenu-texte">
         <h2>DSA FRANCE</h2>
-        <img class="logo-acteur" src="../public/img/formation_co.png" alt="logo">
+        <img class="logo-acteur3" src="../public/img/formation_co.png" alt="logo">
         <h2>Formation&co est une association française présente sur tout le territoire.<br>Nous proposons à des personnes issues de tout milieu de devenir entrepreneur grâce à un crédit et un accompagnement professionnel et personnalisé.<br>Notre proposition : 
            <ul>
                 <li>un financement jusqu’à 30 000€ ;</li>
