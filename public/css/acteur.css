@@ -19,38 +19,37 @@ header{
     height: 100px;
     float: lef;
  }
- .info-session{
-    float: right;
- }
+
+ 
  footer{ 
     padding-top:15px ;
     bottom: 0;
     text-align: center;
-  }
-  .logo-acteur1, .logo-acteur2, .logo-acteur3, .logo-acteur4{   
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 550px;
-    height: 150px;
+}
+.logo-acteur1, .logo-acteur2, .logo-acteur3, .logo-acteur4{   
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 550px;
+  height: 150px;
 
 }
 #commentaires{
-    border:2px solid red;
-    padding: 5px;
+  border:2px solid red;
+  padding: 5px;
 }
 #commentaires h3{
-    text-align: left;
+  text-align: left;
 }
 
 .les-commentaire{
-    border: 3px solid red;
-    margin: 3px 3px 3px 3px;
-    padding: 3px 3px 3px 3px; 
-    
-    
+  border: 3px solid red;
+  margin: 3px 3px 3px 3px;
+  padding: 3px 3px 3px 3px; 
+  
+  
 }
 .champs{
-    height:auto;
-    width:auto;
+  height:auto;
+  width:auto;
 }

@@ -40,7 +40,7 @@ $reponse = $bdd->query('SELECT  prenom, commentaire,date_creation_titre  FROM co
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../public/css/acteur.css">
+    <link rel="stylesheet" href="../public/css/style.css">
     <title>Page acteur PROTECTPEOPLE</title>
 </head>
 <body>

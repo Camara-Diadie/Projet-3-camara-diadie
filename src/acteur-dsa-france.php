@@ -40,7 +40,7 @@ $reponse = $bdd->query('SELECT  prenom, commentaire,date_creation_titre  FROM co
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../public/css/acteur.css">
+    <link rel="stylesheet" href="../public/css/style.css">
 
     <title>Page acteur DSA FRANCE</title>
 </head>
@@ -49,7 +49,7 @@ $reponse = $bdd->query('SELECT  prenom, commentaire,date_creation_titre  FROM co
     <section id="contenu-texte">
         <h2>DSA FRANCE</h2>
         <img class="logo-acteur2" src="../public/img/Dsa_france.png" alt="logo">
-        <h2>Dsa France accélère la croissance du territoire et s’engage avec les collectivités territoriales. Nous accompagnons les entreprises dans les étapes clés de leur évolution.Notre philosophie : s’adapter à chaque entreprise. Nous les accompagnons pour voir plus grand et plus loin et proposons des solutions de financement adaptées à chaque étape de la vie des entreprises
+        <h2>Dsa France accélère la croissance du territoire et s’engage avec les collectivités territoriales.<br> Nous accompagnons les entreprises dans les étapes clés de leur évolution.Notre philosophie : s’adapter à chaque entreprise.<br> Nous les accompagnons pour voir plus grand et plus loin et proposons des solutions de financement adaptées à chaque étape de la vie des entreprises
         </h2>
 
 

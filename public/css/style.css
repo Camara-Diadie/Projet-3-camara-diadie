@@ -107,7 +107,48 @@ body{
 .info{
     display: inline-block;
 }
-/* */
+
+/* partie page acteur */
+.logo-acteur1, .logo-acteur2, .logo-acteur3, .logo-acteur4{   
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 550px;
+  height: 150px;
+}
+#commentaires{
+  border:2px solid red;
+  background-color: rgba(255, 31, 31, 0.452);
+
+  padding: 5px 5px 5px 5px;
+  width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10%;
+}
+#commentaires h3{
+  text-align: center;
+}
+
+  
+
+
+.les-commentaire{
+  width: 50%;
+  border: 3px solid red;
+  background-color: rgb(255, 255, 255);
+
+  margin: 5px 3px 3px 3px;
+  padding: 5px 3px 3px 3px; 
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10%;
+}
+.champs{
+  height:auto;
+  width:auto;
+}
+
   
   footer{ 
     padding-top:15px ;
