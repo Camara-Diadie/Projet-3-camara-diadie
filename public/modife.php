@@ -23,6 +23,7 @@ if(isset($_SESSION['nom']) AND $_SESSION['prenom'])
             ':nom'=>$nouveau_nom,
             ':id'=>$_SESSION['id']
             ]);
+
         header('Location: ../public/index.php');
  
         
@@ -60,9 +61,9 @@ if(isset($_SESSION['nom']) AND $_SESSION['prenom'])
            
     if(isset($_POST['nouveau_question']) AND !empty($_POST['nouveau_question']) AND $_POST['nouveau_question'] != $infoUser['question']) {
         $nouveau_question = htmlspecialchars($_POST['nouveau_question']);
-        $insertQuestion = $bdd->prepare("UPDATE acteur_utilisateur  SET question = :nouveau_question? WHERE id = :id");
+        $insertQuestion = $bdd->prepare("UPDATE acteur_utilisateur  SET question = :nouveau_question WHERE id = :id ");
         $insertQuestion->execute([
-            ':$nouveau_question'=$nouveau_question, 
+            ':nouveau_question'=>$nouveau_question, 
             ':id'=>$_SESSION['id']
             ]);
         header('Location: ../public/index.php');
