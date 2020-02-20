@@ -13,8 +13,8 @@ try{
     $bdd = new PDO('mysql:host=localhost;dbname=gbaf;charset=utf8', 'root','' );
     $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
 }
-catch(Execption $e){
-    die('erreur:'.$e->postMessage());
+catch(Exception $e){
+    die('erreur:'.$e->getMessage());
 }
 if(isset($_POST['envoyer'])){
     if(!empty($_POST['commentaire'])){

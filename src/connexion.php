@@ -65,15 +65,12 @@ if(isset($_POST['connexion'])){
     <section class="formulaire">
         <form method="POST" action="">
             <h1>Se connecter </h1>
-            <label for="nom-utilisateur">Pseudo Utilisateur :</label><input type="text" placeholder=" votre Pseudo" name="pseudo" id="pseudo" ></br>
-            <label for="mot-de-passe">Mot de Passe :</label><input type="password" placeholder=" votre Mot de passe" name="mdp" id="mdp" ></br>
-            <input type="submit" name="connexion"id="submit" value="Connexion">
+            <label for="nom-utilisateur">Pseudo :</label></br><input type="text" placeholder=" votre Pseudo" name="pseudo" id="pseudo" ></br>
+            <label for="mot-de-passe">Mot de passe :</label></br><input type="password" placeholder=" votre Mot de passe" name="mdp" id="mdp" ></br>
+            <input type="submit" name="connexion" id="submit" value="Connexion"></br>
+            <h3><a href="">mots de passe oublier !</a></h3></br>
+            <h3>Vous n'avez pas encore de compte ?<a href="../src/enregistrement.php">Inscription ici</a></h3>
         </form>    
     </section>
-    <section class="autre-option">
-            <h3>Si c'est votre premier visite sur le site vous devez vous crée un compte<a href="../src/enregistrement.php">ici</a></h3>
-            <h3>si vous avez perdu vos identifiant </h3>
-    </section>
-
 
 <?php include("../src/include/footer.php")?>
