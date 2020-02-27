@@ -47,12 +47,8 @@ $reponse = $bdd->query('SELECT  prenom, commentaire,date_creation_titre  FROM co
 <body>
 <?php include("../src/include/header-acteur.php")?>
     <section id="contenu-texte">
-        <h2>DSA FRANCE</h2>
         <img class="logo-acteur2" src="../public/img/Dsa_france.png" alt="logo">
-        <h2>Dsa France accélère la croissance du territoire et s’engage avec les collectivités territoriales.<br> Nous accompagnons les entreprises dans les étapes clés de leur évolution.Notre philosophie : s’adapter à chaque entreprise.<br> Nous les accompagnons pour voir plus grand et plus loin et proposons des solutions de financement adaptées à chaque étape de la vie des entreprises
-        </h2>
-
-
+        <p>Dsa France accélère la croissance du territoire et s’engage avec les collectivités territoriales. Nous accompagnons les entreprises dans les étapes clés de leur évolution.Notre philosophie : s’adapter à chaque entreprise.Nous les accompagnons pour voir plus grand et plus loin et proposons des solutions de financement adaptées à chaque étape de la vie des entreprises</p>
     </section>
     <section id="commentaires">
         <h3>Commentaires</h3>

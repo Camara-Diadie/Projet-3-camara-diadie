@@ -30,13 +30,12 @@ if(isset($_POST['connexion'])){
 
         }
         else{
-            echo' Les information ne sont pas carrecte ou veillez vous inscrire ';
+            $erreur =' Les informations ne sont pas correctes !!! ';
         }
     }
     else{
-        echo'veillez rensigner tout les champs svp!!';
+        $erreur=' Veillez rensigner touts les champs svp!!!';
     }
-    
     
     
 }
@@ -56,21 +55,29 @@ if(isset($_POST['connexion'])){
     <title>Page Connexion GBAF</title>
 </head>
 <body>
-    <header>
+    <header class="titre-connexion">
         <img class="logo-gbaf"src="../public/img/GBAF.png" alt="logo">
     </header>
-    <section class="titre-connexion">
-        <h1>Bienvenue sur GBAF, page de Connexion</h1>
-    </section>
+    
     <section class="formulaire">
         <form method="POST" action="">
             <h1>Se connecter </h1>
-            <label for="nom-utilisateur">Pseudo :</label></br><input type="text" placeholder=" votre Pseudo" name="pseudo" id="pseudo" ></br>
-            <label for="mot-de-passe">Mot de passe :</label></br><input type="password" placeholder=" votre Mot de passe" name="mdp" id="mdp" ></br>
+            <label for="nom-utilisateur">Pseudo </label></br><input type="text" placeholder=" Votre Pseudo" name="pseudo" id="pseudo" ></br>
+            <label for="mot-de-passe">Mot de passe</label></br><input type="password" placeholder=" Votre Mot de passe" name="mdp" id="mdp" ></br>
             <input type="submit" name="connexion" id="submit" value="Connexion"></br>
-            <h3><a href="">mots de passe oublier !</a></h3></br>
-            <h3>Vous n'avez pas encore de compte ?<a href="../src/enregistrement.php">Inscription ici</a></h3>
+            <h3><a href="">Mots de passe oublier ?</a></h3>
+            <h3><a href="../src/enregistrement.php">Inscription ici</a></h3>
+            <?php 
+            
+            if (isset($erreur)) 
+            {
+            ?>
+                <p class="message"> <?php echo $erreur ; ?></p>
+            <?php
+            }
+
+            ?>
         </form>    
     </section>
-
+}
 <?php include("../src/include/footer.php")?>

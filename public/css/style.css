@@ -1,14 +1,18 @@
 body{
+  width: 100%;
     height: 100%;
+    margin: auto;
+    background: linear-gradient(grey, white);
+   font-family: Arial, Helvetica, sans-serif;
+
+
   }
   html {
    margin: 0;
    padding: 0;
    border: 20px;
-   margin-left: 20px;
-   margin-right: 20px;
-  
-   font-family: fantasy;
+   margin-right:10px;
+   margin-left: 10px;
   }
   /* page connexion.php et enregistrement.php*/
   .logo-gbaf{
@@ -19,24 +23,29 @@ body{
     margin-left: auto;
     margin-right: auto;
   }
-  .titre-connexion h1    {
+  .titre-connexion {
     text-align: center;
     padding-top: 15px;
     padding-bottom: 15px;
   }
   .formulaire{
     color: white;
-    
     background-color: #CC1B1B;
     text-align: center;
     padding: 5% 5% 5% 5%;
     border-radius: 20px;
     width: 300px;
     height: auto;
+    margin-top: 20px ;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 100px;
   }
+a {
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+    }
   ::placeholder{
     font-size: 15px;
     text-align: center;
@@ -53,8 +62,8 @@ body{
   input{
     font-size: 20px;
     background-color: #CC1B1B;
-    border: none;
     margin-bottom: 10px;
+    border:1px solid  grey;
     
   }
 
@@ -62,26 +71,34 @@ body{
   header{
     padding-top: 15px;
     width: 100%;
-   
-}
+    border-bottom: 2px solid black;
+  }
 .logo-header{
     width: 100px;
     height: 100px;
     float: lef;
     padding: 5px;
+    margin-bottom: 20px;
+
  }
  .info-session{
     float: right;
     text-align: center;
-    border: red solid 2px;
+    border: black solid 2px;
     padding: 0 3px 7px 3px;
     border-radius: 10px;
+    margin-bottom: 20px;
+
+ }
+ .info-acteur ,.presentation p{
+  font-size: 25px;
  }
  .presentation{
     text-align: justify;
     margin-bottom: 50px;
     padding-bottom: 20px;
-    border-bottom: 5px solid red;
+    
+  
  }
  .ilustration{
     display: block;
@@ -90,21 +107,17 @@ body{
  }
  .info-acteur{
      margin-top: 20px;
+     
  }
-.text-acteur{
-    border:5px solid red ;
-    border-radius: 10px;
-    padding: 10px 10px 10px 10px;
-    margin-top: 20px;
-    background-color: rgba(255, 31, 31, 0.10);
-}
+
 .acteur1,.acteur2,.acteur3,.acteur4{
-    text-align: left;
-    border: 2px solid red ;
-    margin: 10px 10px 25px 10px;
-    padding: 10px 10px 10px 10px;
-    background-color: white;
+    text-align: center;
+    border: 2px solid black;
+    margin: 10px 25% 25px 25%;
+    padding: 10px 0px 10px 0px;
+    background: linear-gradient(rgb(150, 14, 14), rgb(161, 38, 38));
 }
+
 .logo-acteur{
     width: 150px;
     height: 100px;
@@ -120,6 +133,11 @@ body{
 }
 
 /* partie page acteur */
+#contenu-texte{
+  margin-top: 20px;
+  text-align: center;
+}
+
 .logo-acteur1, .logo-acteur2, .logo-acteur3, .logo-acteur4{   
   display: block;
   margin-left: auto;
@@ -128,9 +146,7 @@ body{
   height: 150px;
 }
 #commentaires{
-  border:2px solid red;
-  background-color: rgba(255, 31, 31, 0.452);
-
+  background: linear-gradient(rgb(150, 14, 14), rgb(161, 38, 38));
   padding: 5px 5px 5px 5px;
   width: 750px;
   margin-left: auto;
@@ -142,27 +158,28 @@ body{
 }
 
   
-
+.les-commentaire, #contenu-texte  p{
+  font-size: 20px;
+}
 
 .les-commentaire{
   width: 50%;
-  border: 3px solid red;
-  background-color: rgb(255, 255, 255);
-
   margin: 5px 3px 3px 3px;
   padding: 5px 3px 3px 3px; 
   margin-left: auto;
   margin-right: auto;
-  border-radius: 10%;
+  border-radius: 30px;
+  background: linear-gradient(grey, white);
+
 }
 .champs{
   height:auto;
   width:auto;
 }
-
-  
+#commentaires input{
+  background-color: white;
+}
   footer{ 
-    background-color: red;
     padding-top:15px ;
     bottom: 0;
     text-align: center;

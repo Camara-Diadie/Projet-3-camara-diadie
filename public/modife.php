@@ -54,7 +54,7 @@ if(isset($_SESSION['nom']) AND $_SESSION['prenom']){
         }
             
         if(isset($_POST['nouveauQuestion']) AND !empty($_POST['nouveauQuestion']) AND $_POST['nouveauQuestion'] != $infoUser['question']) {
-            $nouveauQuestion = htmlspecialchars($_POST['nouveau_question']);
+            $nouveauQuestion = htmlspecialchars($_POST['nouveauQuestion']);
             $insertQuestion = $bdd->prepare("UPDATE acteur_utilisateur  SET question = :nouveauQuestion WHERE id = :id ");
             $insertQuestion->execute([
                 ':nouveauQuestion'=>$nouveauQuestion, 
@@ -72,7 +72,7 @@ if(isset($_SESSION['nom']) AND $_SESSION['prenom']){
                 }
                 
             else {
-            echo "erreur !";
+            $erreur=  "erreur !";
         }
     }
 
@@ -102,11 +102,11 @@ if(isset($_SESSION['nom']) AND $_SESSION['prenom']){
                 <h1>Parametre de compte GBAF</h1>
                 <label for="utilisateur">votre nouveaux nom : </label>
                 <input type="text" placeholder=" nouveaux nom" name="nouveauNom" id="nom" ></br>
-                <label for="utilisateur">votre nouveaux prenom : </label>
+                <label for="utilisateur">Nouveaux prenom : </label>
                 <input type="text" placeholder=" nouveaux prenom" name="nouveauPrenom" id="prenom" ></br>
-                <label for="utilisateur">votre nouveaux pseudo d'utilisateur : </label>
+                <label for="utilisateur">Nouveaux pseudo : </label>
                 <input type="text" placeholder=" nouveaux Pseudo" name="nouveauPseudo" id="pseudo"  ></br>
-                <label for="mot-de-passe">votre nouveaux  mot de passe :</label>
+                <label for="mot-de-passe">Nouveaux  mot de passe :</label>
                 <input type="password" placeholder="votre nouveaux Mdp" name="nouveauMdp" id="mdp" ><br>
                 <label for="question">Qestion secret:</label>
                 <select name="nouveauQuestion">
@@ -118,6 +118,15 @@ if(isset($_SESSION['nom']) AND $_SESSION['prenom']){
                 </select>
                 <input type="text" placeholder=" nouvelle réponse" name="nouveauReponse" id="reponse" ><br>
                 <input type="submit"id="submit" name="modifier" value="modifier">
+                <?php 
+                     if (isset($erreur)) 
+                     {
+                     ?>
+                         <p> <?php echo $erreur ; ?></p>
+                     <?php
+                     }
+         
+                     ?>
             </form>
     </section>
 <?php include("../src/include/footer.php")?>
